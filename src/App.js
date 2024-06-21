@@ -37,7 +37,7 @@ const projects = [
 function App() {
   
 
-const [theme, setTheme] = useState('light'); // Default theme
+const [theme, setTheme] = useState('dark'); // Default theme
 
 const handleLogoClick = () => {
   const newTheme = theme === 'light' ? 'dark' : (theme === 'dark' ? 'minimal' : 'light');
@@ -49,8 +49,8 @@ const handleLogoClick = () => {
       <header className="App-header">
         <img src="randy.webp" className="App-logo" alt="profile" onClick={handleLogoClick} /* Add click handler */
 />
-        <h1 className="App-title">Welcome to My Portfolio</h1>
-        <p className="App-subtitle">Software Engineer | Full Stack Developer | Tech Enthusiast</p>
+        <h1 className="App-title">Randy Dyer</h1>
+        <p className="App-subtitle">Software Engineer | Full Stack Developer </p>
         <nav className="App-nav">
           <a href="#about">About Me</a>
           <a href="#projects">Projects</a>
