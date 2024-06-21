@@ -78,7 +78,7 @@
 
 
 h2 {
-  color: #282c34;
+  color: var(--text-color);
 }
 
 a {
