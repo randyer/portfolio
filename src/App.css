@@ -24,21 +24,27 @@
 
 
 .App-logo {
-  height: 150px;
+  height: 50px;
   border-radius: 50%;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .App-header {
   background-color: var(--background-color);
   color: var(--text-color);
-  padding: 20px;
+  /* padding: 20px; */
   color: white;
+  display: flex;
+  align-items: center; /* Aligns items vertically in the center */
+  /* justify-content: space-between; Distributes space evenly between items */
+  padding: 10px 20px; /* Adds padding for better spacing */
+  background-color: #3e70a5;
+
 }
 
 .App-title {
-  font-size: 2.5rem;
-  margin: 10px 0;
+  font-size: 1.5rem;
+  margin: 10px 50px;
   color: var(--text-color);
 
 }
@@ -89,20 +95,25 @@ a {
 /* Project Grid Styling */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal width */
+  grid-gap: 50px; /* Space between the grid items */
+  margin: 100px; /*Optional padding around the entire grid */
 }
+
 
 /* Individual Project Styling */
 .project {
-  border: 3px solid #1e2129; /* Increased border thickness */
-  border-radius: 12px; /* Added border radius */
-  padding: 15px;
-  background-color: var(--project-background);
-  border-color: var(--project-border);  
+  border-radius: 30px; /* Added border radius */
+  /* padding: 15px; */
+  background-color: #3e70a5;
   color: var(--text-color); /* Light text color */
   cursor: pointer; /* Indicate clickability with pointer cursor */
   transition: transform 0.2s ease; /* Smooth transition for hover effect */
+  display: flex; /* Use flexbox to layout child elements */
+  flex-direction: column; /* Stack children vertically */
+  overflow: hidden; /* Hide overflow */
+  width: 300px;
+  height: 300px;
 }
 
 .project:hover {
@@ -110,12 +121,51 @@ a {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow on hover */
 }
 
-.project-image {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px; /* Add spacing between image and title */
+/* .project-image {
+  flex: 3;
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  object-position: center;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+} */
+
+.project-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Or whatever aspect ratio you prefer */
+  overflow: hidden; /* Prevents overlay from spilling out */
 }
 
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
+  display: block; /* Removes any space below the image */
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(109, 141, 212, 0.2); /* Example: black with 50% opacity */
+  z-index: 1; /* Overlay must be above the image */
+}
+
+
 .project-info {
-  text-align: left; /* Left-align project title and description */
+  flex: 1; /* Takes up 1/4 of the space */
+  padding: 10px; /* Padding inside the info box */
+  display: flex; /* Use flex to align title */
+  flex-direction: column; /* Stack the title (and potentially description) vertically */
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center the content horizontally */
+}
+
+.project h3 {
+  margin: 0; /* Remove default margin */
+  text-align: center; /* Center align the title */
 }
