@@ -40,22 +40,11 @@ const projectsDesc = [
 function App() {
   const [theme, setTheme] = useState('dark'); // Initialize theme state
 
-  // Toggle theme on logo click
-  const handleLogoClick = () => {
-    setTheme(prevTheme => {
-      switch (prevTheme) {
-        case 'light': return 'dark';
-        case 'dark': return 'light';
-        // case 'minimal': return 'light';
-        default: return 'dark';
-      }
-    });
-  };
-
   return (
     <div className={`App theme-${theme}`}>
       <header className="App-header">
-        <img src="randy.webp" className="App-logo" alt="profile" onClick={handleLogoClick} />
+        <img src="randy.webp" className="App-logo" alt="profile" />
+        
         <h1 className="App-title">Randy Dyer</h1>
         <nav className="App-nav">
           <a href="#about">About Me</a>
@@ -73,12 +62,13 @@ function App() {
           ))}
         </div>
       </section>
-      {/* <section id="contact" className="App-section">
-        <a href='https://github.com/randyer'><img style={{ width: '40px' }} src='../pictures/github.svg' alt="GitHub"></img></a>
+       <section id="contact" className="App-section">
+        {/* <a href='https://github.com/randyer'><img style={{ width: '40px' }} src='../pictures/github.svg' alt="GitHub"></img></a>
         <a href='https://www.linkedin.com/in/randy-dyer-7556b2213/'><img style={{ width: '40px' }} src='../pictures/linkedin.svg' alt="LinkedIn"></img></a>
-        <a href='mailto:rbdyer3@gmail.com'><img style={{ width: '40px' }} src='../pictures/gmail.svg' alt="Gmail"></img></a>
-      </section> */}
+        <a href='mailto:rbdyer3@gmail.com'><img style={{ width: '40px' }} src='../pictures/gmail.svg' alt="Gmail"></img></a> */}
       <Footer></Footer>
+      </section> 
+      
     </div>
   );
 }
