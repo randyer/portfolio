@@ -169,3 +169,22 @@ a {
   margin: 0; /* Remove default margin */
   text-align: center; /* Center align the title */
 }
+
+.App-footer {
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
+  /* background-color: #333; example background color */
+  color: white; /* example text color */
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.social-links a {
+  margin-right: 20px;  /* Adds space to the right of each link */
+  display: inline-block; /* Ensures that the margin applies correctly */
+}
+
+.social-links a:last-child {
+  margin-right: 0;  /* Removes the margin from the last link */
+}
