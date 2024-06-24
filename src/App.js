@@ -45,15 +45,19 @@ function App() {
       <header className="App-header">
         <img src="randy.webp" className="App-logo" alt="profile" />
         
-        <h1 className="App-title">Randy Dyer</h1>
+        {/* <h1 className="App-title">Randy Dyer</h1> */}
         <nav className="App-nav">
-          <a href="#about">About Me</a>
+          {/* <a href="#about">About Me</a> */}
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
       <section id="about" className="App-section">
         {/* Section content could be uncommented or added here */}
+        <p className='about'>
+        Hello! I'm Randy Dyer, a software engineer interested in app development for the web, mobile, and more! Check out some of the apps I've worked on over the past couple years.
+        </p>
+
       </section>
       <section id="projects" className="App-section">
         <div className="project-grid">
