@@ -72,13 +72,15 @@
 }
 
 .App-section {
-  padding: 40px 20px;
+  padding: 20px 20px;
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
 #about, #projects, #contact {
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -91,13 +93,19 @@ a {
   color: #61dafb;
 }
 
+.about {
+  width: 80%;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
 
 /* Project Grid Styling */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal width */
   grid-gap: 50px; /* Space between the grid items */
-  margin: 100px; /*Optional padding around the entire grid */
+  width: 80%;
 }
 
 
