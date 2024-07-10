@@ -1,69 +1,48 @@
-.theme-light { /* Light theme styles */
-  --background-color: #f4f4f4;
-  --text-color: #222;
-  --accent-color: #007bff;
+:root {
+  --background: #141916;
+  --white: #F4F1DE;
+  --accent: #31473A;
+  --default-padding: 20px;
 }
 
-.theme-dark { /* Dark theme styles */
-  --background-color: #282c34;
-  --text-color: #fff;
-  --accent-color: #61dafb;
-}
-
-.theme-minimal { /* Minimal theme styles */
-  --background-color: #fff;
-  --text-color: #333;
-  --accent-color: #00bfa5;
+.theme-dark {
+  --background-color: var(--background);
+  --white-color: var(--white);
+  --accent-color: var(--accent);
 }
 
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--white-color);
+}
+
+.App p{
+  font-size: 1.2rem;
+}
+
+.App h2{
+  font-size: 1.75rem;
 }
 
 
 .App-logo {
-  height: 50px;
+  width: 40px;
   border-radius: 50%;
-  /* margin-top: 20px; */
 }
 
 .App-header {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  /* padding: 20px; */
-  color: white;
   display: flex;
-  align-items: center; /* Aligns items vertically in the center */
-  /* justify-content: space-between; Distributes space evenly between items */
-  padding: 10px 20px; /* Adds padding for better spacing */
-  background-color: #3e70a5;
-
-}
-
-.App-title {
-  font-size: 1.5rem;
-  margin: 10px 50px;
-  color: var(--text-color);
-
-}
-
-.App-subtitle {
-  font-size: 1.2rem;
-  margin: 10px 0 20px;
-  color: var(--text-color);
-
-}
-
-.App-nav {
-  margin: 20px 0;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: white;
 }
 
 .App-nav a {
-  color: var(--text-color);
-
   margin: 0 15px;
+  color: var(--white-color);
   text-decoration: none;
 }
 
@@ -71,26 +50,9 @@
   text-decoration: underline;
 }
 
+
 .App-section {
-  padding: 20px 20px;
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-#about, #projects, #contact {
-  /* margin-top: 20px; */
-  display: flex;
-  justify-content: center;
-}
-
-
-
-h2 {
-  color: var(--text-color);
-}
-
-a {
-  color: #61dafb;
+  /* padding: var(--default-padding); */
 }
 
 .about {
@@ -99,100 +61,161 @@ a {
   font-weight: 600;
 }
 
-
-/* Project Grid Styling */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal width */
-  grid-gap: 50px; /* Space between the grid items */
-  width: 80%;
+  grid-template-columns: repeat(1, 1fr);
+  width: 90%;
+  padding-left: 1rem;
+}
+
+#about{
+  background-color: #31473A;
+}
+#project{
+
 }
 
 
-/* Individual Project Styling */
 .project {
-  border-radius: 30px; /* Added border radius */
-  /* padding: 15px; */
-  background-color: #3e70a5;
-  color: var(--text-color); /* Light text color */
-  cursor: pointer; /* Indicate clickability with pointer cursor */
-  transition: transform 0.2s ease; /* Smooth transition for hover effect */
-  display: flex; /* Use flexbox to layout child elements */
-  flex-direction: column; /* Stack children vertically */
-  overflow: hidden; /* Hide overflow */
-  width: 300px;
-  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 5px; /* Adjust this if needed */
 }
-
-.project:hover {
-  transform: scale(1.05); /* Subtle zoom effect on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow on hover */
-}
-
-/* .project-image {
-  flex: 3;
-  width: 100%;
-  height: 70%;
-  object-fit: cover;
-  object-position: center;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-} */
 
 .project-image-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3; /* Or whatever aspect ratio you prefer */
-  overflow: hidden; /* Prevents overlay from spilling out */
+  flex: 0 0 150px;
+  margin-right: 20px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image covers the container */
-  display: block; /* Removes any space below the image */
+  width: 90%;
+  height: 70%;
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  /* border-radius: 10px; */
 }
-
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(109, 141, 212, 0.2); /* Example: black with 50% opacity */
-  z-index: 1; /* Overlay must be above the image */
-}
-
 
 .project-info {
-  flex: 1; /* Takes up 1/4 of the space */
-  padding: 10px; /* Padding inside the info box */
-  display: flex; /* Use flex to align title */
-  flex-direction: column; /* Stack the title (and potentially description) vertically */
-  justify-content: center; /* Center the content vertically */
-  align-items: center; /* Center the content horizontally */
+  flex: 1;
+  color: var(--white-color);
 }
 
-.project h3 {
-  margin: 0; /* Remove default margin */
-  text-align: center; /* Center align the title */
+.project-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.project-info p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.project-info {
+  color: var(--white-color);
+}
+
+.project::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, var(--accent-color) 50%, var(--white-color) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position 0.3s ease;
+}
+
+.project:hover::after {
+  background-position: 0 0;
 }
 
 .App-footer {
-  /* position: absolute;
-  bottom: 0;
-  width: 100%; */
-  /* background-color: #333; example background color */
-  color: white; /* example text color */
+  color: white;
   text-align: center;
   padding-bottom: 10px;
 }
 
 .social-links a {
-  margin-right: 20px;  /* Adds space to the right of each link */
-  display: inline-block; /* Ensures that the margin applies correctly */
+  margin-right: 20px;
+  display: inline-block;
 }
 
 .social-links a:last-child {
-  margin-right: 0;  /* Removes the margin from the last link */
+  margin-right: 0;
+}
+
+
+.panel-container {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.panel {
+  width: 40%;
+  text-align: center;
+}
+
+
+.panel-image {
+  padding: 6px;
+  width: 60px;
+  /* height: 50px; */
+}
+
+.two-column-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-item {
+  width: 50%;
+  box-sizing: border-box;
+}
+.column-item p {
+  padding: 4px 0px;
+  margin: 0px;
+}
+
+.custom-shape-divider-top-1720548982 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1720548982 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 130px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1720548982 .shape-fill {
+  fill: #31473A;
+}
+
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900 */
+
+.montserrat-100 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
 }
