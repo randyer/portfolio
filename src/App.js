@@ -4,8 +4,6 @@ import Project from './components/Project';
 import Footer from './components/Footer';
 import TriPanel from './components/TriPanel';
 
-
-
 function App() {
 
   return (
@@ -13,11 +11,9 @@ function App() {
       <header className="App-header">
         <img src="randy.webp" className="App-logo" alt="profile" />
         <nav className="App-nav">
-        <a href="#projects">Projects</a>
+        {/* <a href="#projects">Projects</a> */}
 
-        <a href="#employment">Employment</a>
-
-        <a href="#about">About</a>
+        {/* <a href="#about">About</a> */}
         </nav>
       </header>
       <section id="about" className="App-section">
