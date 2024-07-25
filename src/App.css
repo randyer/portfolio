@@ -50,7 +50,6 @@
   text-decoration: underline;
 }
 
-
 .App-section {
   /* padding: var(--default-padding); */
 }
@@ -62,28 +61,39 @@
 }
 
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  /* display: grid; */
+  /* grid-template-columns: repeat(1, 1fr); */
   width: 90%;
   padding-left: 1rem;
 }
 
+@media (max-width: 576px) {
+  .project-grid{
+    flex-direction: column;
+  }
+}
+
 #about{
   background-color: #31473A;
-}
-#project{
-
 }
 
 
 .project {
   display: flex;
   align-items: center;
-  justify-content: center;
   margin: 20px 0;
+  padding-bottom: 10px;
   cursor: pointer;
   position: relative;
-  padding-bottom: 5px; /* Adjust this if needed */
+}
+
+@media (max-width: 576px) {
+  .project{
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+
+  }
 }
 
 .project-image-container {
@@ -91,19 +101,33 @@
   margin-right: 20px;
   width: 150px;
   height: 150px;
-  overflow: hidden;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 16/9;
 }
 
+@media (max-width: 576px) {
+  .project-image-container {
+    justify-content: start;
+    width: auto;
+    aspect-ratio: 12/9;
+
+  }
+}
 .project-image {
   width: 90%;
   height: 70%;
   object-fit: cover; /* Maintain aspect ratio and cover the container */
-  /* border-radius: 10px; */
+  /* border-radius: 6px; */
 }
+
+/* @media (max-width: 576px) {
+  .project-image{
+    aspect-ratio: 1/1;
+
+  }
+} */
 
 .project-info {
   flex: 1;
@@ -113,6 +137,13 @@
 .project-info h3 {
   margin: 0;
   font-size: 1.5rem;
+  display: inline;
+}
+
+@media (max-width: 576px) {
+  .project-info h3{
+    font-size: 1.25rem;
+  }
 }
 
 .project-info p {
@@ -161,14 +192,29 @@
 .panel-container {
   display: flex;
   justify-content: space-between;
-  
 }
+
+@media (max-width: 576px) {
+  .panel-container {
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+
 
 .panel {
   width: 40%;
   text-align: center;
 }
-
+@media (max-width: 576px) {
+  
+  .panel{
+    width: 100%;
+  }
+}
 
 .panel-image {
   padding: 6px;
@@ -202,7 +248,7 @@
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 130px;
+  height: 80px;
   transform: rotateY(180deg);
 }
 
