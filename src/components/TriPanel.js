@@ -5,7 +5,7 @@ import './TriPanel.css'
 
 
 const TriPanel = ({ sectionData }) => {
-  const divider = {backgroundColor: '#F4F1DE', width: '1px'}
+  // const divider = {backgroundColor: '#F4F1DE', width: '1px'}
   return (
     <div className="panel-container">
       <div className="panel">
