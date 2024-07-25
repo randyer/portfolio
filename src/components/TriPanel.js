@@ -1,17 +1,18 @@
 import React from 'react';
 import { Tooltip } from 'react-tooltip'
 import TwoColumnList from './TwoColumnList';
+import './TriPanel.css'
 
 
 const TriPanel = ({ sectionData }) => {
-  const borderStyle = {backgroundColor: '#F4F1DE', width: '1px'}
+  const divider = {backgroundColor: '#F4F1DE', width: '1px'}
   return (
     <div className="panel-container">
       <div className="panel">
         <h2>{sectionData[0].title}</h2>
         <TwoColumnList items={sectionData[0].items}></TwoColumnList>
       </div>
-      <div style={borderStyle}></div>
+      <div className='divider'></div>
 
       <div className="panel">
         <h2>{sectionData[1].title}</h2>
@@ -25,7 +26,7 @@ const TriPanel = ({ sectionData }) => {
         />
         ))}
       </div>
-      <div style={borderStyle}></div>
+      <div className='divider'></div>
 
       <div className="panel">
         <h2>{sectionData[2].title}</h2>

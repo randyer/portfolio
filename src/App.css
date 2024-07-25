@@ -50,7 +50,6 @@
   text-decoration: underline;
 }
 
-
 .App-section {
   /* padding: var(--default-padding); */
 }
@@ -68,11 +67,14 @@
   padding-left: 1rem;
 }
 
+@media (max-width: 576px) {
+  .project-grid{
+    flex-direction: column;
+  }
+}
+
 #about{
   background-color: #31473A;
-}
-#project{
-
 }
 
 
@@ -86,6 +88,14 @@
   padding-bottom: 5px; /* Adjust this if needed */
 }
 
+/* @media (max-width: 576px) {
+  .project{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+  }
+} */
+
 .project-image-container {
   flex: 0 0 150px;
   margin-right: 20px;
@@ -96,14 +106,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 16/9;
 }
 
+/* @media (max-width: 576px) {
+  .project-image-container {
+    align-items: center;
+    justify-content: start;
+    width: auto;
+    height: auto;
+  }
+} */
 .project-image {
   width: 90%;
   height: 70%;
   object-fit: cover; /* Maintain aspect ratio and cover the container */
-  /* border-radius: 10px; */
+  border-radius: 6px;
 }
+
+/* @media (max-width: 576px) {
+  .project-image{
+    aspect-ratio: 1/1;
+
+  }
+} */
 
 .project-info {
   flex: 1;
@@ -161,14 +187,29 @@
 .panel-container {
   display: flex;
   justify-content: space-between;
-  
 }
+
+@media (max-width: 576px) {
+  .panel-container {
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+
 
 .panel {
   width: 40%;
   text-align: center;
 }
-
+@media (max-width: 576px) {
+  
+  .panel{
+    width: 100%;
+  }
+}
 
 .panel-image {
   padding: 6px;
