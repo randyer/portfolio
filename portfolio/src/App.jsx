@@ -1,34 +1,65 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useState, useEffect } from "react";
 import "./App.css";
+import ProjectCard from "./components/ui/projectCard";
+
+import ATM from "./assets/ATM-app.png";
+import ATM_Website from "./assets/ATM-website.png";
+import ATM_logo from "./assets/ATM-logo.jpeg";
+import Cero from "./assets/Cero.png";
+import DataAnnotation from "./assets/dataAnnotation.jpg";
+import studentSuccess from "./assets/studentSuccess.png";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Function to update scroll progress
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset;
+    const winHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const totalScroll = (scrollTop / (docHeight - winHeight)) * 100;
+    setScrollProgress(totalScroll);
+  };
+
+  // Add event listener to update scroll progress
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1 className="text-white text-2xl m-8 animate-fade-in">
+        Hi, my name is Randy Dyer
+      </h1>
+      <h1 className="text-white text-2xl m-8 animate-fade-in delay-75">
+        I design and develop mobile apps and websites
+      </h1>
+
+      <div className="timeline flex justify-center items-start relative">
+        <div className="flex-col space-y-6 my-4">
+          <ProjectCard imagePath={ATM} description="Mobile Patient Tracker" />
+          <ProjectCard imagePath={ATM_Website} description="Website" />
+          <ProjectCard imagePath={ATM_logo} description="Logo" />
+          <ProjectCard imagePath={Cero} description="Mobile App" />
+          <ProjectCard
+            imagePath={DataAnnotation}
+            description="Data Annotation"
+          />
+          <ProjectCard
+            imagePath={studentSuccess}
+            description="Student Success App"
+          />
+        </div>
+
+        {/* Scroll progress tracker */}
+        <div
+          className="fixed top-6 left-3 w-[3px] bg-[#FE6E35] transition-all duration-1000 ease-out rounded"
+          style={{ height: `${scrollProgress}vh` }}
+        ></div>
       </div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>{" "}
-      <h1 className="">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
