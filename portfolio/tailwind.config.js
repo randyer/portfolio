@@ -12,6 +12,9 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        gold: "hsl(var(--gold))",
+        cream: "hsl(var(--cream))",
+        orange: "hsl(var(--orange))",
         warning: "hsl(var(--warning))",
         "warning-foreground": "hsl(var(--warning-foreground))",
         card: {
@@ -80,15 +83,26 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        // Custom block reveal and fade-in animations
-        "block-reveal": "reveal 1s ease-out forwards",
-        "fade-in": "fadeIn 1.5s ease-in forwards",
+        slideIn: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        slideOut: {
+          "0%": { width: "100%", left: "0" }, // Start with full width
+          "100%": { width: "0%", left: "100%" }, // Move the left side to the right
+        },
       },
     },
+    animation: {
+      "accordion-down": "accordion-down 0.2s ease-out",
+      "accordion-up": "accordion-up 0.2s ease-out",
+      // Custom block reveal and fade-in animations
+      "block-reveal": "reveal 1s ease-out forwards",
+      "fade-in": "fadeIn 1.5s ease-in forwards",
+      "slide-in": "slideIn 0.6s ease-in forwards",
+      "slide-out": "slideOut 0.6s ease-out forwards",
+    },
   },
+
   plugins: [require("tailwindcss-animate")],
 };

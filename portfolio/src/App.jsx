@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import ProjectCard from "./components/ui/projectCard";
+import BlockReveal from "./components/blockReveal";
 
 import ATM from "./assets/ATM-app.png";
 import ATM_Website from "./assets/ATM-website.png";
@@ -31,12 +32,19 @@ function App() {
 
   return (
     <>
-      <h1 className="text-white text-2xl m-8 animate-fade-in">
-        Hi, my name is Randy Dyer
-      </h1>
-      <h1 className="text-white text-2xl m-8 animate-fade-in delay-75">
-        I design and develop mobile apps and websites
-      </h1>
+      <div>
+        <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
+          <h1 className="text-white text-2xl p-4">Hi, my name is Randy Dyer</h1>
+        </BlockReveal>
+      </div>
+
+      <div>
+        <BlockReveal backgroundColor={"bg-gold"} delay={1600}>
+          <h1 className="text-white text-2xl p-4">
+            I design and develop mobile apps and websites
+          </h1>
+        </BlockReveal>
+      </div>
 
       <div className="timeline flex justify-center items-start relative">
         <div className="flex-col space-y-6 my-4">
