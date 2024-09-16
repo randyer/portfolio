@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 function ProjectCard({ imagePath, description }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [rotation, setRotation] = useState({ rotateX: 0, rotateY: 0 });
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -26,6 +27,17 @@ function ProjectCard({ imagePath, description }) {
     };
   }, []);
 
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20; // Skew based on X-axis position
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20; // Skew based on Y-axis position
+    setRotation({ rotateX: y, rotateY: x });
+  };
+
+  const handleMouseLeave = () => {
+    setRotation({ rotateX: 0, rotateY: 0 }); // Reset rotation when cursor leaves the image
+  };
+
   return (
     <div
       ref={cardRef}
@@ -35,14 +47,23 @@ function ProjectCard({ imagePath, description }) {
           : "opacity-0 translate-y-10 scale-95"
       }`}
     >
-      <img
-        src={imagePath}
-        alt="image"
-        className="object-cover transition-transform hover:scale-105 rounded"
-      />
-      <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full backdrop-blur-sm bg-black bg-opacity-50 rounded">
-        <p className="text-lg">{description}</p>
-        <div className="w-full h-1 bg-white rounded"></div>
+      <div
+        style={{
+          transform: `perspective(700px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(1.05)`,
+          transition: "transform 0.3s ease", // Add this line for smooth reset
+        }}
+      >
+        <img
+          src={imagePath}
+          alt="image"
+          className="object-cover"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        />
+        <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 ">
+          <p className="text-lg">{description}</p>
+          <div className="w-full h-1 bg-white rounded"></div>
+        </div>
       </div>
     </div>
   );
