@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 
-function ProjectCard({ imagePath, description }) {
+function ProjectCard({ imagePath, description, href }) {
   const [isVisible, setIsVisible] = useState(false);
   const [rotation, setRotation] = useState({ rotateX: 0, rotateY: 0 });
+  const [svgContent, setSvgContent] = useState(null);
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -38,16 +39,32 @@ function ProjectCard({ imagePath, description }) {
     setRotation({ rotateX: 0, rotateY: 0 }); // Reset rotation when cursor leaves the image
   };
 
-  return (
-    <div
-      ref={cardRef}
-      className={`text-white overflow-visible w-52 transform transition-all duration-700 ease-in-out ${
-        isVisible
-          ? "opacity-100 translate-y-0 scale-100"
-          : "opacity-0 translate-y-10 scale-95"
-      }`}
-    >
-      <div>
+  // Fetch and display SVG content if it's an SVG
+  useEffect(() => {
+    if (imagePath.endsWith(".svg")) {
+      fetch(imagePath)
+        .then((response) => response.text())
+        .then((data) => setSvgContent(data))
+        .catch((error) => console.error("Error fetching SVG: ", error));
+    }
+  }, [imagePath]);
+
+  const renderImage = () => {
+    if (imagePath.endsWith(".svg") && svgContent) {
+      return (
+        <div
+          className="object-cover object-top aspect-square rounded"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            transform: `perspective(700px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(1.05)`,
+            transition: "transform 0.3s ease", // Smooth reset
+          }}
+          dangerouslySetInnerHTML={{ __html: svgContent }}
+        />
+      );
+    } else {
+      return (
         <img
           src={imagePath}
           alt="image"
@@ -56,15 +73,32 @@ function ProjectCard({ imagePath, description }) {
           onMouseLeave={handleMouseLeave}
           style={{
             transform: `perspective(700px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(1.05)`,
-            transition: "transform 0.3s ease", // Add this line for smooth reset
+            transition: "transform 0.3s ease", // Smooth reset
           }}
         />
-        <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 bg-opacity-40 bg-black">
-          <p className="text-lg">{description}</p>
-          <div className="w-full h-1 bg-white rounded"></div>
+      );
+    }
+  };
+
+  return (
+    <a href={href}>
+      <div
+        ref={cardRef}
+        className={`text-white overflow-visible w-52 transform transition-all duration-700 ease-in-out ${
+          isVisible
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-10 scale-95"
+        }`}
+      >
+        <div>
+          {renderImage()}
+          <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 bg-opacity-40 bg-black">
+            <p className="text-lg">{description}</p>
+            <div className="w-full h-1 bg-white rounded"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 

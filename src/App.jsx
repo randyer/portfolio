@@ -7,6 +7,8 @@ import Nav from "./components/nav";
 import ATM from "./assets/ATM-app.png";
 import ATM_Website from "./assets/ATM-website.png";
 import ATM_logo from "./assets/ATM-logo.jpeg";
+import BeyondTheVisual from "./assets/BeyondTheVisual.webp";
+import BWHLogo from "./assets/BWH.webp";
 import Cero from "./assets/Cero.png";
 import DataAnnotation from "./assets/dataAnnotation.jpg";
 import studentSuccess from "./assets/studentSuccess.png";
@@ -45,12 +47,10 @@ function App() {
 
   return (
     <>
-      {/* <button
-        id="hamburger-button"
-        class="relative h-8 w-8 cursor-pointer text-3xl md:hidden"
-      >
-        <div class="absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-all duration-500 before:absolute before:h-1 before:w-8 before:-translate-x-4 before:-translate-y-3 before:rounded before:bg-white before:transition-all before:duration-500 before:content-[''] after:absolute after:h-1 after:w-8 after:-translate-x-4 after:translate-y-3 after:rounded after:bg-white after:transition-all after:duration-500 after:content-['']"></div>
-      </button> */}
+      {/* <embed
+          src="https://craniosacralmassagetherapy.com/"
+          className="w-1/2 h-1/2"
+        ></embed> */}
       <header className="p-4 flex space-x-4">
         <div>
           <div>
@@ -78,16 +78,42 @@ function App() {
       <div className="timeline flex justify-center items-start relative">
         <div className="flex-col space-y-6 my-4">
           <ProjectCard imagePath={ATM} description="Mobile Patient Tracker" />
-          <ProjectCard imagePath={ATM_Website} description="Website" />
-          <ProjectCard imagePath={ATM_logo} description="Logo" />
-          <ProjectCard imagePath={Cero} description="Mobile App" />
           <ProjectCard
+            imagePath={ATM_Website}
+            description="Alton Therapeutic Massage"
+            href={"https://craniosacralmassagetherapy.com/"}
+          />
+          {/* <ProjectCard imagePath={ATM_logo} description="Logo" /> */}
+          <ProjectCard
+            imagePath={BeyondTheVisual}
+            description="Beyond The Visual"
+            href={
+              "https://apps.apple.com/us/app/beyond-the-visual/id6444328107"
+            }
+          />
+          <ProjectCard
+            imagePath={BWHLogo}
+            description="Brighams and Womens"
+            href={
+              "https://docs.google.com/document/d/1nB_1RjJ3bOCf8VLKAoTiIXdCFOSljNsls4WEy7DaQo4/edit"
+            }
+          />
+          <ProjectCard
+            imagePath={Cero}
+            description="Cero"
+            href={"https://www.cero.coop/"}
+          />
+          {/* <ProjectCard
             imagePath={DataAnnotation}
             description="Data Annotation"
-          />
+            href={
+              "https://www.dataannotation.tech/coders?worker_src=G&worker_source=G&utm_source=google&utm_medium=display&utm_campaign=20429741244&utm_adgroup=153001519820&utm_content=695853277331&gad_source=1&gclid=CjwKCAjw0aS3BhA3EiwAKaD2ZYKJ-I3y9vzArBsmiC5-Qx_vNdQebzF6unFCFUC2dLOF0wNysjio5hoCUl0QAvD_BwE"
+            }
+          /> */}
           <ProjectCard
             imagePath={studentSuccess}
             description="Student Success App"
+            href={"https://studentsuccesshandbook.wpi.edu/"}
           />
         </div>
 

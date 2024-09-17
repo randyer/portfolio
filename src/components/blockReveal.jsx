@@ -41,7 +41,9 @@ const BlockReveal = ({ children, backgroundColor, delay = 0 }) => {
 
       {/* Text behind the block */}
       <span
-        className={`relative ${showText ? "opacity-100" : "opacity-0"} z-10`}
+        className={`relative ${
+          showText ? "opacity-100 visible" : "opacity-0 invisible"
+        } z-10 `}
       >
         {children}
       </span>
