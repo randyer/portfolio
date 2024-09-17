@@ -67,7 +67,7 @@ export default function Nav() {
       {(isMenuOpen || isFadingOut) && (
         <div
           ref={menuRef}
-          className={`z-40 absolute top-20 right-0 p-2 bg-cream bg-opacity-70  ${
+          className={`z-40 absolute top-20 right-0 p-2 bg-cream bg-opacity-90  ${
             isMenuOpen && !isFadingOut
               ? "animate-fade-in duration-150"
               : "animate-fade-out duration-150"
