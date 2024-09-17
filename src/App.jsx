@@ -152,10 +152,11 @@ function App() {
 
         {/* Scroll progress tracker */}
         <div
-          className={`fixed left-3 w-[3px] bg-[#FE6E35] transition-all duration-500 ease-out rounded`}
+          className={`fixed left-3 w-[3px] max-h-[1/2vh] bg-[#FE6E35] transition-all duration-500 ease-out rounded`}
           style={{
             top: animateInitial ? initialTop : `120px`, // Move from bottom to top on load
             height: `${scrollProgress}vh`, // Follows scroll progress after initial animation
+            maxHeight: "85vh",
           }}
         ></div>
       </div>
