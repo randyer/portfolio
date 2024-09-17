@@ -21,23 +21,43 @@ function App() {
   const [scrollProgress, setScrollProgress] = useState(12);
   const [initialTop, setInitialTop] = useState("100vh"); // Start from the bottom of the viewport
   const [animateInitial, setAnimateInitial] = useState(true); // To trigger the initial top position animation
+  const [scrollDirection, setScrollDirection] = useState("up"); // New state to track scroll direction
+  const [lastScrollTop, setLastScrollTop] = useState(0); // To track the previous scroll position
+  const [navHidden, setNavHidden] = useState(false); // State to hide/show the nav
 
-  // Function to update scroll progress
+  // Function to update scroll progress and direction
   const handleScroll = () => {
     const scrollTop = window.pageYOffset;
     const winHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
-    const totalScroll = (scrollTop / (docHeight - winHeight)) * 100 + 12; // The +12 is to have some extra padding for visibility
+    const totalScroll = (scrollTop / (docHeight - winHeight)) * 100 + 12;
     setScrollProgress(totalScroll);
+
+    // Detect scroll direction
+    if (scrollTop > 80) {
+      // Only apply the effect after scrolling down 100px
+
+      if (scrollTop > lastScrollTop) {
+        // User is scrolling down
+        setScrollDirection("down");
+        setNavHidden(true); // Hide the sticky element
+      } else {
+        // User is scrolling up
+        setScrollDirection("up");
+        setNavHidden(false); // Show the sticky element
+      }
+
+      setLastScrollTop(scrollTop); // Update last scroll position
+    }
   };
 
-  // Add event listener to update scroll progress
+  // Add event listener to update scroll progress and direction
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [lastScrollTop]);
 
   // Trigger the initial load animation to move the line from the bottom to its starting position
   useEffect(() => {
@@ -51,15 +71,21 @@ function App() {
 
   return (
     <>
-      {/* <embed
-          src="https://craniosacralmassagetherapy.com/"
-          className="w-1/2 h-1/2"
-        ></embed> */}
-      <nav className="flex justify-between items-center p-4 bg-black">
-        <img src={rLogo} alt="R Logo" className="w-10" />
+      {/* Sticky element that hides on scroll down and shows on scroll up */}
+      <nav
+        className={`flex justify-between items-center p-4 bg-black fixed top-0 z-50 w-full transition-transform duration-700 ${
+          navHidden ? "-translate-y-full" : "translate-y-0"
+        }`}
+      >
+        <img
+          src={rLogo}
+          alt="R Logo"
+          className="w-10 animate-fade-in duration-700"
+        />
         <Nav />
       </nav>
-      <header className="p-4 flex space-x-4">
+
+      <header className="p-4 flex space-x-4 pt-28">
         <div>
           <div>
             <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
@@ -80,6 +106,7 @@ function App() {
           </div>
         </div>
       </header>
+
       <Divider>
         <h2>Projects</h2>
       </Divider>
@@ -92,7 +119,6 @@ function App() {
             description="Alton Therapeutic Massage"
             href={"https://craniosacralmassagetherapy.com/"}
           />
-          {/* <ProjectCard imagePath={ATM_logo} description="Logo" /> */}
           <ProjectCard
             imagePath={BeyondTheVisual}
             description="Beyond The Visual"
@@ -112,13 +138,6 @@ function App() {
             description="Cero Cooperative"
             href={"https://www.cero.coop/"}
           />
-          {/* <ProjectCard
-            imagePath={DataAnnotation}
-            description="Data Annotation"
-            href={
-              "https://www.dataannotation.tech/coders?worker_src=G&worker_source=G&utm_source=google&utm_medium=display&utm_campaign=20429741244&utm_adgroup=153001519820&utm_content=695853277331&gad_source=1&gclid=CjwKCAjw0aS3BhA3EiwAKaD2ZYKJ-I3y9vzArBsmiC5-Qx_vNdQebzF6unFCFUC2dLOF0wNysjio5hoCUl0QAvD_BwE"
-            }
-          /> */}
           <ProjectCard
             imagePath={studentSuccess}
             description="Student Success App"
@@ -133,9 +152,9 @@ function App() {
 
         {/* Scroll progress tracker */}
         <div
-          className={`fixed left-3 w-[3px] bg-[#FE6E35] transition-all duration-1000 ease-out rounded`}
+          className={`fixed left-3 w-[3px] bg-[#FE6E35] transition-all duration-500 ease-out rounded`}
           style={{
-            top: animateInitial ? initialTop : `36px`, // Move from bottom to top on load
+            top: animateInitial ? initialTop : `120px`, // Move from bottom to top on load
             height: `${scrollProgress}vh`, // Follows scroll progress after initial animation
           }}
         ></div>

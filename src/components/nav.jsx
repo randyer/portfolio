@@ -40,24 +40,24 @@ export default function Nav() {
     <>
       <button
         id="hamburger-button"
-        className="z-50 relative h-8 min-w-8 top-4 cursor-pointer text-3xl md:hidden duration-700 animate-fade-in duration-700"
+        className="z-50 h-8 min-w-8 top-4 cursor-pointer text-3xl md:hidden duration-700 animate-fade-in duration-700"
         onClick={toggleMenu}
       >
         {/* Top bar */}
         <div
-          className={`absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-transform duration-500
+          className={`absolute -mt-0.5 h-1 w-8 rounded bg-white transition-transform duration-500
                   ${isMenuOpen ? "origin-center -rotate-45" : "translate-y-3"}
                 `}
         ></div>
         {/* Middle bar */}
         <div
-          className={`absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-opacity duration-500
+          className={`absolute -mt-0.5 h-1 w-8 rounded bg-white transition-opacity duration-500
                   ${isMenuOpen ? "opacity-0" : ""}
                 `}
         ></div>
         {/* Bottom bar */}
         <div
-          className={`absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-transform duration-500
+          className={`absolute -mt-0.5 h-1 w-8 rounded bg-white transition-transform duration-500
                   ${isMenuOpen ? "origin-center rotate-45" : "-translate-y-3"}
                 `}
         ></div>
