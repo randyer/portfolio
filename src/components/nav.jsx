@@ -45,19 +45,19 @@ export default function Nav() {
       >
         {/* Top bar */}
         <div
-          className={`absolute -mt-0.5 h-1 w-8 rounded bg-white transition-transform duration-500
+          className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-transform duration-500
                   ${isMenuOpen ? "origin-center -rotate-45" : "translate-y-3"}
                 `}
         ></div>
         {/* Middle bar */}
         <div
-          className={`absolute -mt-0.5 h-1 w-8 rounded bg-white transition-opacity duration-500
+          className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-opacity duration-500
                   ${isMenuOpen ? "opacity-0" : ""}
                 `}
         ></div>
         {/* Bottom bar */}
         <div
-          className={`absolute -mt-0.5 h-1 w-8 rounded bg-white transition-transform duration-500
+          className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-transform duration-500
                   ${isMenuOpen ? "origin-center rotate-45" : "-translate-y-3"}
                 `}
         ></div>
@@ -78,7 +78,7 @@ export default function Nav() {
           >
             <li className="row-span-3">
               <a
-                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-black p-3 no-underline focus:shadow-md"
+                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
                 href="/projects"
               >
                 <div className="my-2 text-lg text-white font-medium">
@@ -91,7 +91,7 @@ export default function Nav() {
             </li>
             <li className="row-span-3">
               <a
-                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-black p-6 no-underline focus:shadow-md"
+                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-6 no-underline focus:shadow-md"
                 href="/about"
               >
                 <div className="mb-2 mt-4 text-lg text-white font-medium">
@@ -104,7 +104,7 @@ export default function Nav() {
             </li>
             <li className="row-span-3">
               <a
-                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-black p-6 no-underline focus:shadow-md"
+                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-6 no-underline focus:shadow-md"
                 href="/skills"
               >
                 <div className="mb-2 mt-4 text-lg text-white font-medium">

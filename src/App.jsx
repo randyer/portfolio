@@ -73,14 +73,14 @@ function App() {
     <>
       {/* Sticky element that hides on scroll down and shows on scroll up */}
       <nav
-        className={`flex justify-between items-center p-4 bg-black fixed top-0 z-50 w-full transition-transform duration-700 ${
+        className={`flex justify-between items-center p-3 bg-darkGreen fixed top-0 z-50 w-full transition-transform duration-700 ${
           navHidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
         <img
           src={rLogo}
           alt="R Logo"
-          className="w-10 animate-fade-in duration-700"
+          className="w-8 animate-fade-in duration-700"
         />
         <Nav />
       </nav>
