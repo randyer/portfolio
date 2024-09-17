@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import ProjectCard from "./components/ui/projectCard";
 import BlockReveal from "./components/blockReveal";
+import Nav from "./components/nav";
 
 import ATM from "./assets/ATM-app.png";
 import ATM_Website from "./assets/ATM-website.png";
@@ -9,16 +10,6 @@ import ATM_logo from "./assets/ATM-logo.jpeg";
 import Cero from "./assets/Cero.png";
 import DataAnnotation from "./assets/dataAnnotation.jpg";
 import studentSuccess from "./assets/studentSuccess.png";
-
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(12);
@@ -54,52 +45,34 @@ function App() {
 
   return (
     <>
-      <NavigationMenu className="bg-black">
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>E</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                      href="/"
-                    >
-                      {/* <Icons.logo className="h-6 w-6" /> */}
-                      <div className="mb-2 mt-4 text-lg font-medium">
-                        shadcn/ui
-                      </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components built with Radix UI and
-                        Tailwind CSS.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-      <header className="p-4">
+      {/* <button
+        id="hamburger-button"
+        class="relative h-8 w-8 cursor-pointer text-3xl md:hidden"
+      >
+        <div class="absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-all duration-500 before:absolute before:h-1 before:w-8 before:-translate-x-4 before:-translate-y-3 before:rounded before:bg-white before:transition-all before:duration-500 before:content-[''] after:absolute after:h-1 after:w-8 after:-translate-x-4 after:translate-y-3 after:rounded after:bg-white after:transition-all after:duration-500 after:content-['']"></div>
+      </button> */}
+      <header className="p-4 flex">
         <div>
-          <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
-            <h1 className="text-white font-normal text-3xl p-4 font-Outfit">
-              Hi, my name is{" "}
-              <span className="font-Indie font-normal text-3xl">
-                Randy Dyer
-              </span>
-            </h1>
-          </BlockReveal>
+          <div>
+            <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
+              <h1 className="text-white font-normal text-3xl p-4 font-Outfit">
+                Hi, my name is{" "}
+                <span className="font-Indie font-normal text-3xl">
+                  Randy Dyer
+                </span>
+              </h1>
+            </BlockReveal>
+          </div>
+          <div>
+            <BlockReveal backgroundColor={"bg-gold"} delay={1600}>
+              <h1 className="text-white text-2xl px-4 font-normal font-Outfit">
+                I design and develop mobile apps and websites
+              </h1>
+            </BlockReveal>
+          </div>
         </div>
-        <div>
-          <BlockReveal backgroundColor={"bg-gold"} delay={1600}>
-            <h1 className="text-white text-2xl px-4 font-normal font-Outfit">
-              I design and develop mobile apps and websites
-            </h1>
-          </BlockReveal>
-        </div>
+
+        <Nav />
       </header>
 
       <div className="timeline flex justify-center items-start relative">

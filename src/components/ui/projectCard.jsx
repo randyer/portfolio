@@ -47,18 +47,17 @@ function ProjectCard({ imagePath, description }) {
           : "opacity-0 translate-y-10 scale-95"
       }`}
     >
-      <div
-        style={{
-          transform: `perspective(700px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(1.05)`,
-          transition: "transform 0.3s ease", // Add this line for smooth reset
-        }}
-      >
+      <div>
         <img
           src={imagePath}
           alt="image"
           className="object-cover object-top aspect-square rounded"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          style={{
+            transform: `perspective(700px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(1.05)`,
+            transition: "transform 0.3s ease", // Add this line for smooth reset
+          }}
         />
         <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 bg-opacity-40 bg-black">
           <p className="text-lg">{description}</p>
