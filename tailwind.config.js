@@ -27,8 +27,8 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         gold: "hsl(var(--gold))",
-        cream: "hsl(var(--cream))",
-        orange: "hsl(var(--orange))",
+        cream: "rgb(255 249 224 / <alpha-value>)",
+        orange: "rgb(254 110 53 / <alpha-value>)",
         warning: "hsl(var(--warning))",
         "warning-foreground": "hsl(var(--warning-foreground))",
         card: {
@@ -97,6 +97,10 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        fadeOut: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
         slideIn: {
           "0%": { width: "0%" },
           "100%": { width: "100%" },
@@ -113,6 +117,7 @@ export default {
       // Custom block reveal and fade-in animations
       "block-reveal": "reveal 1s ease-out forwards",
       "fade-in": "fadeIn 1.5s ease-in forwards",
+      "fade-out": "fadeOut 1.5s ease-in forwards",
       "slide-in": "slideIn 0.6s ease-in forwards",
       "slide-out": "slideOut 0.6s ease-out forwards",
     },

@@ -1,72 +1,123 @@
-import { useState } from "react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import { useState, useEffect, useRef } from "react";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const menuRef = useRef(null); // Reference to the menu container
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    if (isMenuOpen) {
+      // Trigger fade-out and hamburger animation simultaneously
+      setIsFadingOut(true);
+
+      // After animation completes, hide the menu
+      setTimeout(() => {
+        setIsMenuOpen(false);
+        setIsFadingOut(false); // Reset fade state after menu closes
+      }, 300); // Match this to the fade-out animation duration
+    } else {
+      setIsMenuOpen(true);
+    }
   };
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        if (isMenuOpen) {
+          toggleMenu(); // Close menu when clicking outside
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <NavigationMenu className="bg-transparent">
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>
-            <button
-              id="hamburger-button"
-              className="relative h-8 w-8 cursor-pointer text-3xl md:hidden"
-              onClick={toggleMenu}
-            >
-              <div
-                className={`absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-all duration-500
-                  ${!isMenuOpen ? "translate-y-3" : "origin-center -rotate-45 "}
+    <>
+      <button
+        id="hamburger-button"
+        className="z-50 relative h-8 min-w-8 top-4 cursor-pointer text-3xl md:hidden duration-700 animate-fade-in duration-700"
+        onClick={toggleMenu}
+      >
+        {/* Top bar */}
+        <div
+          className={`absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-transform duration-500
+                  ${isMenuOpen ? "origin-center -rotate-45" : "translate-y-3"}
                 `}
-              ></div>
-              <div
-                className={`absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-all duration-500
-                  ${!isMenuOpen ? "-translate-y-3" : "origin-center -rotate-45"}
+        ></div>
+        {/* Middle bar */}
+        <div
+          className={`absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-opacity duration-500
+                  ${isMenuOpen ? "opacity-0" : ""}
                 `}
-              ></div>
-              <div
-                className={`absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-all duration-500
-                  ${!isMenuOpen ? "" : "rotate-45 "}
+        ></div>
+        {/* Bottom bar */}
+        <div
+          className={`absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-transform duration-500
+                  ${isMenuOpen ? "origin-center rotate-45" : "-translate-y-3"}
                 `}
-              ></div>
-            </button>
-          </NavigationMenuTrigger>
-          {isMenuOpen && (
-            <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-black p-6 no-underline outline-none focus:shadow-md"
-                      href="/"
-                    >
-                      <div className="mb-2 mt-4 text-lg text-white font-medium">
-                        shadcn/ui
-                      </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components built with Radix UI and
-                        Tailwind CSS.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          )}
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+        ></div>
+      </button>
+
+      {/* Ensure both the menu is open or fading out */}
+      {(isMenuOpen || isFadingOut) && (
+        <div
+          ref={menuRef}
+          className={`z-40 absolute top-20 right-0 p-2 bg-cream bg-opacity-70  ${
+            isMenuOpen && !isFadingOut
+              ? "animate-fade-in duration-150"
+              : "animate-fade-out duration-150"
+          }`}
+        >
+          <ul
+            className={`grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]`}
+          >
+            <li className="row-span-3">
+              <a
+                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-black p-3 no-underline focus:shadow-md"
+                href="/projects"
+              >
+                <div className="my-2 text-lg text-white font-medium">
+                  Projects
+                </div>
+                <p className="text-sm leading-tight text-muted-foreground">
+                  Check out my latest projects.
+                </p>
+              </a>
+            </li>
+            <li className="row-span-3">
+              <a
+                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-black p-6 no-underline focus:shadow-md"
+                href="/about"
+              >
+                <div className="mb-2 mt-4 text-lg text-white font-medium">
+                  About
+                </div>
+                <p className="text-sm leading-tight text-muted-foreground">
+                  Learn more about me.
+                </p>
+              </a>
+            </li>
+            <li className="row-span-3">
+              <a
+                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-black p-6 no-underline focus:shadow-md"
+                href="/skills"
+              >
+                <div className="mb-2 mt-4 text-lg text-white font-medium">
+                  Skills
+                </div>
+                <p className="text-sm leading-tight text-muted-foreground">
+                  Explore my skills and expertise.
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
+    </>
   );
 }
