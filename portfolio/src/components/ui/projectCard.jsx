@@ -41,7 +41,7 @@ function ProjectCard({ imagePath, description }) {
   return (
     <div
       ref={cardRef}
-      className={`text-white overflow-visible w-52 transform transition-all duration-700 ease-in-out  ${
+      className={`text-white overflow-visible w-52 transform transition-all duration-700 ease-in-out ${
         isVisible
           ? "opacity-100 translate-y-0 scale-100"
           : "opacity-0 translate-y-10 scale-95"
@@ -56,7 +56,7 @@ function ProjectCard({ imagePath, description }) {
         <img
           src={imagePath}
           alt="image"
-          className="object-cover"
+          className="object-cover object-top aspect-square rounded"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         />

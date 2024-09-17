@@ -12,6 +12,12 @@ export default {
       Indie: ["Indie Flower"],
     },
     extend: {
+      aspectRatio: {
+        "3/4": "3 / 4",
+        "4/3": "4 / 3",
+        "16/9": "16 / 9",
+        "21/9": "21 / 9",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

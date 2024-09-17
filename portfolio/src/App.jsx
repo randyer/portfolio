@@ -10,8 +10,18 @@ import Cero from "./assets/Cero.png";
 import DataAnnotation from "./assets/dataAnnotation.jpg";
 import studentSuccess from "./assets/studentSuccess.png";
 
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+
 function App() {
-  const [scrollProgress, setScrollProgress] = useState(14);
+  const [scrollProgress, setScrollProgress] = useState(12);
   const [initialTop, setInitialTop] = useState("100vh"); // Start from the bottom of the viewport
   const [animateInitial, setAnimateInitial] = useState(true); // To trigger the initial top position animation
 
@@ -20,7 +30,7 @@ function App() {
     const scrollTop = window.pageYOffset;
     const winHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
-    const totalScroll = (scrollTop / (docHeight - winHeight)) * 100 + 14; // The +14 is to have some extra padding for visibility
+    const totalScroll = (scrollTop / (docHeight - winHeight)) * 100 + 12; // The +12 is to have some extra padding for visibility
     setScrollProgress(totalScroll);
   };
 
@@ -44,6 +54,34 @@ function App() {
 
   return (
     <>
+      <NavigationMenu className="bg-black">
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>E</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <li className="row-span-3">
+                  <NavigationMenuLink asChild>
+                    <a
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                      href="/"
+                    >
+                      {/* <Icons.logo className="h-6 w-6" /> */}
+                      <div className="mb-2 mt-4 text-lg font-medium">
+                        shadcn/ui
+                      </div>
+                      <p className="text-sm leading-tight text-muted-foreground">
+                        Beautifully designed components built with Radix UI and
+                        Tailwind CSS.
+                      </p>
+                    </a>
+                  </NavigationMenuLink>
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
       <header className="p-4">
         <div>
           <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
