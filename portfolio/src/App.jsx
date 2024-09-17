@@ -47,9 +47,9 @@ function App() {
       <header className="p-4">
         <div>
           <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
-            <h1 className="text-white font-light text-3xl p-4 font-Outfit">
+            <h1 className="text-white font-normal text-3xl p-4 font-Outfit">
               Hi, my name is{" "}
-              <span className="font-Playfair font-normal text-3xl">
+              <span className="font-Indie font-normal text-3xl">
                 Randy Dyer
               </span>
             </h1>
@@ -57,7 +57,7 @@ function App() {
         </div>
         <div>
           <BlockReveal backgroundColor={"bg-gold"} delay={1600}>
-            <h1 className="text-white text-2xl px-4 font-Outfit">
+            <h1 className="text-white text-2xl px-4 font-normal font-Outfit">
               I design and develop mobile apps and websites
             </h1>
           </BlockReveal>

@@ -7,6 +7,9 @@ export default {
       Playfair: ["Playfair"],
       Roboto: ["Roboto"],
       Outfit: ["Outfit"],
+      Dancing: ["Dancing Script"],
+      Shadows: ["Shadows Into Light"],
+      Indie: ["Indie Flower"],
     },
     extend: {
       borderRadius: {

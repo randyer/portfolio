@@ -38,6 +38,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* font-family: "Playfair"; */
+    font-family: "Outfit", sans-serif;
   }
 }
