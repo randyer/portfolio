@@ -3,15 +3,17 @@ import "./App.css";
 import ProjectCard from "./components/ui/projectCard";
 import BlockReveal from "./components/blockReveal";
 import Nav from "./components/nav";
+import Divider from "./components/divider";
 
 import ATM from "./assets/ATM-app.png";
 import ATM_Website from "./assets/ATM-website.png";
-import ATM_logo from "./assets/ATM-logo.jpeg";
+import ATM_logo from "./assets/ATM-client-logo.png";
 import BeyondTheVisual from "./assets/BeyondTheVisual.webp";
 import BWHLogo from "./assets/BWH.webp";
 import Cero from "./assets/Cero.png";
 import DataAnnotation from "./assets/dataAnnotation.jpg";
 import studentSuccess from "./assets/studentSuccess.png";
+import BWSIcon from "./assets/BWS-Logo.png";
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(12);
@@ -55,7 +57,7 @@ function App() {
         <div>
           <div>
             <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
-              <h1 className="text-white font-normal text-3xl m-4 font-Outfit">
+              <h1 className="text-white font-normal text-3xl m-4 font-Outfit ">
                 Hi, my name is{" "}
                 <span className="font-Indie font-normal text-3xl">
                   Randy Dyer
@@ -74,10 +76,13 @@ function App() {
 
         <Nav />
       </header>
+      <Divider>
+        <h2>Projects</h2>
+      </Divider>
 
       <div className="timeline flex justify-center items-start relative">
         <div className="flex-col space-y-6 my-4">
-          <ProjectCard imagePath={ATM} description="Mobile Patient Tracker" />
+          <ProjectCard imagePath={ATM_logo} description="Patient Tracker" />
           <ProjectCard
             imagePath={ATM_Website}
             description="Alton Therapeutic Massage"
@@ -100,7 +105,7 @@ function App() {
           />
           <ProjectCard
             imagePath={Cero}
-            description="Cero"
+            description="Cero Cooperative"
             href={"https://www.cero.coop/"}
           />
           {/* <ProjectCard
@@ -114,6 +119,11 @@ function App() {
             imagePath={studentSuccess}
             description="Student Success App"
             href={"https://studentsuccesshandbook.wpi.edu/"}
+          />
+          <ProjectCard
+            imagePath={BWSIcon}
+            description="Memory Matching Game"
+            href={"https://randyer.github.io/BWSmemoryMatchingGame/"}
           />
         </div>
 
