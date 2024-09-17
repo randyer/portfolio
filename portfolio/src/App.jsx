@@ -34,13 +34,15 @@ function App() {
     <>
       <div>
         <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
-          <h1 className="text-white text-2xl p-4">Hi, my name is Randy Dyer</h1>
+          <h1 className="text-white text-3xl p-4 font-semibold font-Roboto">
+            Hi, my name is <span className="font-Playfair">Randy Dyer</span>
+          </h1>
         </BlockReveal>
       </div>
 
       <div>
         <BlockReveal backgroundColor={"bg-gold"} delay={1600}>
-          <h1 className="text-white text-2xl p-4">
+          <h1 className="text-white text-2xl px-4">
             I design and develop mobile apps and websites
           </h1>
         </BlockReveal>
@@ -64,7 +66,7 @@ function App() {
 
         {/* Scroll progress tracker */}
         <div
-          className="fixed top-6 left-3 w-[3px] bg-[#FE6E35] transition-all duration-1000 ease-out rounded"
+          className="fixed top-28 left-3 w-[3px] bg-[#FE6E35] transition-all duration-1000 ease-out rounded"
           style={{ height: `${scrollProgress}vh` }}
         ></div>
       </div>

@@ -3,6 +3,10 @@ export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      Playfair: ["Playfair"],
+      Roboto: ["Roboto"],
+    },
     extend: {
       borderRadius: {
         lg: "var(--radius)",
