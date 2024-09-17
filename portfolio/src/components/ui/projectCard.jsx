@@ -60,7 +60,7 @@ function ProjectCard({ imagePath, description }) {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         />
-        <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 ">
+        <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 bg-opacity-40 bg-black">
           <p className="text-lg">{description}</p>
           <div className="w-full h-1 bg-white rounded"></div>
         </div>

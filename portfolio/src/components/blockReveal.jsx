@@ -30,7 +30,7 @@ const BlockReveal = ({ children, backgroundColor, delay = 0 }) => {
     <div className="relative inline-block overflow-hidden">
       {/* Block that slides in and out */}
       <div
-        className={`absolute inset-2 z-20 ${backgroundColor} transition-all ${
+        className={`absolute inset-0 z-20 ${backgroundColor} transition-all ${
           startSlideIn
             ? isSlidingOut
               ? "animate-slide-out"

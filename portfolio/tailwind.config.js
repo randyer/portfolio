@@ -6,6 +6,7 @@ export default {
     fontFamily: {
       Playfair: ["Playfair"],
       Roboto: ["Roboto"],
+      Outfit: ["Outfit"],
     },
     extend: {
       borderRadius: {
