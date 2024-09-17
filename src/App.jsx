@@ -15,6 +15,8 @@ import DataAnnotation from "./assets/dataAnnotation.jpg";
 import studentSuccess from "./assets/studentSuccess.png";
 import BWSIcon from "./assets/BWS-Logo.png";
 
+import rLogo from "./assets/R-logo.svg";
+
 function App() {
   const [scrollProgress, setScrollProgress] = useState(12);
   const [initialTop, setInitialTop] = useState("100vh"); // Start from the bottom of the viewport
@@ -53,6 +55,10 @@ function App() {
           src="https://craniosacralmassagetherapy.com/"
           className="w-1/2 h-1/2"
         ></embed> */}
+      <nav className="flex justify-between items-center p-4 bg-black">
+        <img src={rLogo} alt="R Logo" className="w-10" />
+        <Nav />
+      </nav>
       <header className="p-4 flex space-x-4">
         <div>
           <div>
@@ -73,8 +79,6 @@ function App() {
             </BlockReveal>
           </div>
         </div>
-
-        <Nav />
       </header>
       <Divider>
         <h2>Projects</h2>
