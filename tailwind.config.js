@@ -29,6 +29,7 @@ export default {
         gold: "hsl(var(--gold))",
         cream: "rgb(255 249 224 / <alpha-value>)",
         orange: "rgb(254 110 53 / <alpha-value>)",
+        purple: "rgb(107 76 96 / <alpha-value>)",
         warning: "hsl(var(--warning))",
         "warning-foreground": "hsl(var(--warning-foreground))",
         card: {
