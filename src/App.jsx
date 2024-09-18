@@ -18,7 +18,7 @@ import BWSIcon from "./assets/BWS-Logo.png";
 import rLogo from "./assets/R-logo.svg";
 
 function App() {
-  const [scrollProgress, setScrollProgress] = useState(12);
+  // const [scrollProgress, setScrollProgress] = useState(12);
   const [scrollDirection, setScrollDirection] = useState("up"); // New state to track scroll direction
   const [lastScrollTop, setLastScrollTop] = useState(0); // To track the previous scroll position
   const [navHidden, setNavHidden] = useState(false); // State to hide/show the nav
@@ -36,8 +36,8 @@ function App() {
     // Set the top value based on scroll position, until it hits the top of the viewport (120px in this case)
 
     const docHeight = document.documentElement.scrollHeight;
-    const totalScroll = (scrollTop / (docHeight - winHeight)) * 100;
-    setScrollProgress(totalScroll);
+    // const totalScroll = (scrollTop / (docHeight - winHeight)) * 100;
+    // setScrollProgress(totalScroll);
 
     if (scrollTop > lastScrollTop) {
       setScrollDirection("down");
@@ -62,10 +62,6 @@ function App() {
         height: "82px",
       }));
     }
-    // setTimelineStyling((prevStyling) => ({
-    //   ...prevStyling,
-    //   height: `${totalScroll + 12}vh`, // Update the height based on scroll progress
-    // }));
   };
 
   // Add event listener to update scroll progress and direction
@@ -79,8 +75,6 @@ function App() {
   // Trigger the initial load animation to move the line from the bottom to its starting position
   useEffect(() => {
     const initialAnimationTimer = setTimeout(() => {
-      // setInitialTop("52px"); // Set the top to the final position after the animation
-      // setAnimateInitial(false); // Disable initial animation once done
       setTimelineStyling({ ...timelineStyling, top: "120px" });
     }, 2200);
 
@@ -95,11 +89,13 @@ function App() {
           navHidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <img
-          src={rLogo}
-          alt="R Logo"
-          className="w-8 animate-fade-in duration-700"
-        />
+        <a href="/">
+          <img
+            src={rLogo}
+            alt="R Logo"
+            className="w-8 animate-fade-in duration-700"
+          />
+        </a>
         <Nav />
       </nav>
 

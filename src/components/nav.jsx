@@ -67,7 +67,7 @@ export default function Nav() {
       {(isMenuOpen || isFadingOut) && (
         <div
           ref={menuRef}
-          className={`z-40 absolute top-20 right-0 p-2 bg-cream bg-opacity-90  ${
+          className={`z-40 absolute top-20 right-0 p-2 mx-2 bg-cream bg-opacity-90  ${
             isMenuOpen && !isFadingOut
               ? "animate-fade-in duration-150"
               : "animate-fade-out duration-150"
@@ -79,9 +79,9 @@ export default function Nav() {
             <li className="row-span-3">
               <a
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
-                href="/projects"
+                href="/"
               >
-                <div className="my-2 text-lg text-white font-medium">
+                <div className="my-2 text-lg text-white font-medium underline">
                   Projects
                 </div>
                 <p className="text-sm leading-tight text-muted-foreground">
@@ -89,29 +89,30 @@ export default function Nav() {
                 </p>
               </a>
             </li>
+
             <li className="row-span-3">
               <a
-                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-6 no-underline focus:shadow-md"
-                href="/about"
+                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
+                href="/skills"
               >
-                <div className="mb-2 mt-4 text-lg text-white font-medium">
-                  About
+                <div className="my-2 text-lg text-white font-medium underline">
+                  Skills
                 </div>
                 <p className="text-sm leading-tight text-muted-foreground">
-                  Learn more about me.
+                  Explore my skills and expertise.
                 </p>
               </a>
             </li>
             <li className="row-span-3">
               <a
-                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-6 no-underline focus:shadow-md"
-                href="/skills"
+                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
+                href="/about"
               >
-                <div className="mb-2 mt-4 text-lg text-white font-medium">
-                  Skills
+                <div className="my-2 text-lg text-white font-medium underline">
+                  About
                 </div>
                 <p className="text-sm leading-tight text-muted-foreground">
-                  Explore my skills and expertise.
+                  Learn more about me.
                 </p>
               </a>
             </li>
