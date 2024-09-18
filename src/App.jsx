@@ -5,13 +5,11 @@ import BlockReveal from "./components/blockReveal";
 import Nav from "./components/nav";
 import Divider from "./components/divider";
 import TextBubble from "./components/textBubble";
-import ATM from "./assets/ATM-app.png";
 import ATM_Website from "./assets/ATM-website.png";
 import ATM_logo from "./assets/ATM-client-logo.png";
 import BeyondTheVisual from "./assets/BeyondTheVisual.webp";
 import BWHLogo from "./assets/BWH.webp";
 import Cero from "./assets/Cero.png";
-import DataAnnotation from "./assets/dataAnnotation.jpg";
 import studentSuccess from "./assets/studentSuccess.png";
 import BWSIcon from "./assets/BWS-Logo.png";
 import Java from "./assets/java.svg";
@@ -34,13 +32,11 @@ function App() {
   const [timelineStyling, setTimelineStyling] = useState({
     top: `1000px`, // Move from bottom to top on load
     height: "82px", // Follows scroll progress after initial animation
-    // maxHeight: "50vh",
   });
 
   // Function to update scroll progress and direction
   const handleScroll = () => {
     const scrollTop = window.scrollY;
-    const winHeight = window.innerHeight;
 
     // Update the navHidden state when scrolling down or up
     if (scrollTop > lastScrollTop) {
@@ -189,9 +185,6 @@ function App() {
             <TextBubble>{item}</TextBubble>
           ))}
         </div>
-        {/* <Divider className="flex-grow">
-              <h2>Languages</h2>
-              </Divider> */}
         <footer
           id="footer"
           className="p-4 bg-darkGreen text-white text-center mt-10"
@@ -215,14 +208,6 @@ function App() {
             />
           </div>
         </footer>
-        {/* <ul className="flex space-x-4 flex-wrap">
-              {languages.map((item) => (
-              <li>
-                <img src={item.src} alt={item.alt} className="w-8" />
-              </li>
-              ))}
-            </ul> */}
-
         <div
           className={`fixed left-3 w-[3px] bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
           style={timelineStyling}
