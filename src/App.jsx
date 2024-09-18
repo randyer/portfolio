@@ -125,7 +125,7 @@ function App() {
         <Divider className="flex-grow">
           <h2>Projects</h2>
         </Divider>
-        <div className="timeline flex justify-center items-start relative mt-24">
+        <div className="timeline flex justify-center items-start relative mt-10">
           <div className="flex-col space-y-6 my-4">
             <ProjectCard imagePath={ATM_logo} description="Patient Tracker" />
             <ProjectCard
@@ -242,49 +242,5 @@ const languagesIcon = [
 ];
 
 const languages = ["Java", "Python", "C", "C++", "JavaScript", "TypeScript"];
-
-const sectionData = [
-  {
-    title: "Tools",
-    items: [
-      "React",
-      "mySQL",
-      "mongoDB",
-      "Firebase",
-      "PostgreSQL",
-      "Skikit-learn",
-      "Node.js",
-      "Junit",
-      "Express.js",
-    ],
-  },
-  {
-    title: "Languages",
-    images: [
-      { src: Java, alt: "Java" },
-      { src: Python, alt: "Python" },
-      { src: C, alt: "C" },
-      { src: Cpp, alt: "C++" },
-      { src: JS, alt: "JavaScript" },
-      { src: TypeScript, alt: "TypeScript" },
-      { src: HTML, alt: "html" },
-      { src: CSS, alt: "css" },
-    ],
-  },
-  {
-    title: "development",
-    items: [
-      "Agile",
-      "Expo",
-      "Github",
-      "Linux",
-      "AWS",
-      "macOS",
-      "Jira",
-      "Windows",
-      "Figma",
-    ],
-  },
-];
 
 export default App;
