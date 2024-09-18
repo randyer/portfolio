@@ -24,7 +24,7 @@ function App() {
   const [navHidden, setNavHidden] = useState(false); // State to hide/show the nav
   const [timelineStyling, setTimelineStyling] = useState({
     top: `1000px`, // Move from bottom to top on load
-    height: `${scrollProgress}vh`, // Follows scroll progress after initial animation
+    height: "82px", // Follows scroll progress after initial animation
     maxHeight: "50vh",
   });
 
