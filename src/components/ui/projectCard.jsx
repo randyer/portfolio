@@ -3,7 +3,19 @@ import React, { useRef, useEffect, useState } from "react";
 function ProjectCard({ imagePath, description, href }) {
   const [isVisible, setIsVisible] = useState(false);
   const [rotation, setRotation] = useState({ rotateX: 0, rotateY: 0 });
+  const [isMediumScreen, setIsMediumScreen] = useState(false);
   const cardRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMediumScreen(window.innerWidth >= 768); // Check if screen width is large (>= 1024px)
+    };
+
+    handleResize(); // Call it once on mount
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,34 +51,41 @@ function ProjectCard({ imagePath, description, href }) {
   };
 
   return (
-    <a href={href}>
-      <div
-        ref={cardRef}
-        className={`text-white overflow-visible w-44 transform transition-all duration-700 ease-in-out h-80 ${
-          isVisible
-            ? "opacity-100 translate-y-0 scale-100"
-            : "opacity-0 translate-y-10 scale-95"
-        }`}
-      >
-        <div>
-          <img
-            src={imagePath}
-            alt="image"
-            className="object-cover object-top aspect-square rounded-xl"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              transform: `perspective(700px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(1.05)`,
-              transition: "transform 0.3s ease", // Add this line for smooth reset
-            }}
-          />
-          <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 bg-opacity-60 bg-black">
-            <p className="text-lg">{description}</p>
-            <div className="w-full h-1 bg-white rounded"></div>
+    <>
+      {isMediumScreen ? (
+        // Large screen content here
+        <div>{/* Add your large screen content here */}</div>
+      ) : (
+        <a href={href}>
+          <div
+            ref={cardRef}
+            className={`text-white overflow-visible w-44  transform transition-all duration-700 ease-in-out h-72 ${
+              isVisible
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 translate-y-10 scale-95"
+            }`}
+          >
+            <div>
+              <img
+                src={imagePath}
+                alt="image"
+                className="object-cover object-top aspect-square rounded-xl "
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                  transform: `perspective(700px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(1.05)`,
+                  transition: "transform 0.3s ease", // Add this line for smooth reset
+                }}
+              />
+              <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 bg-opacity-60 bg-black">
+                <p className="text-lg">{description}</p>
+                <div className="w-full h-1 bg-white rounded"></div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </a>
+        </a>
+      )}
+    </>
   );
 }
 

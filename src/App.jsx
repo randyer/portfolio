@@ -104,9 +104,9 @@ function App() {
           <div>
             <div>
               <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
-                <h1 className="text-white font-normal text-3xl m-4 font-Outfit ">
+                <h1 className="text-white font-normal text-3xl m-4 font-Outfit lg:text-6xl">
                   Hi, my name is{" "}
-                  <span className="font-Indie font-normal text-3xl">
+                  <span className="font-Indie font-normal text-3xl lg:text-7xl">
                     Randy Dyer
                   </span>
                 </h1>
@@ -114,7 +114,7 @@ function App() {
             </div>
             <div>
               <BlockReveal backgroundColor={"bg-gold"} delay={1600}>
-                <h1 className="text-white text-2xl px-4 font-normal font-Outfit">
+                <h1 className="text-white text-2xl px-4 font-normal font-Outfit lg:text-4xl">
                   I design and develop mobile apps and websites
                 </h1>
               </BlockReveal>
@@ -166,25 +166,30 @@ function App() {
         <Divider className="flex-grow">
           <h2>Skills</h2>
         </Divider>
-        <div id="skills" className="flex flex-wrap justify-center mx-2">
-          {tools.map((item) => (
-            <TextBubble>{item}</TextBubble>
-          ))}
-          {languages.map((item) => (
-            <TextBubble>{item}</TextBubble>
-          ))}
-        </div>
-
         <div
-          className="w-3/4 border-t-2
-           border-white self-center m-4 max-w-96"
-        ></div>
-
-        <div className="flex flex-wrap justify-center mx-2">
-          {development.map((item) => (
-            <TextBubble>{item}</TextBubble>
-          ))}
+          id="skills"
+          className="flex flex-wrap self-center justify-center mx-2 max-w-4xl"
+        >
+          <div className="flex flex-wrap self-center justify-center mx-2 max-w-4xl">
+            {tools.map((item) => (
+              <TextBubble>{item}</TextBubble>
+            ))}
+            {languages.map((item) => (
+              <TextBubble>{item}</TextBubble>
+            ))}
+          </div>
+          <div
+            className="w-3/4 border-t-2
+           border-white self-center m-4 max-w-96 lg:hidden "
+          ></div>
+          <div className="flex flex-wrap self-center justify-center mx-2 max-w-4xl">
+            {development.map((item) => (
+              <TextBubble>{item}</TextBubble>
+            ))}
+          </div>
         </div>
+
+        <div className="flex flex-wrap justify-center mx-2"></div>
         <footer
           id="footer"
           className="p-4 bg-darkGreen text-white text-center mt-10"
