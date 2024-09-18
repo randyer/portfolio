@@ -26,6 +26,7 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        darkGreen: "rgb(0 66 43 / <alpha-value>)",
         gold: "hsl(var(--gold))",
         cream: "rgb(255 249 224 / <alpha-value>)",
         orange: "rgb(254 110 53 / <alpha-value>)",

@@ -42,7 +42,7 @@ function ProjectCard({ imagePath, description, href }) {
     <a href={href}>
       <div
         ref={cardRef}
-        className={`text-white overflow-visible w-52 transform transition-all duration-700 ease-in-out h-80 ${
+        className={`text-white overflow-visible w-44 transform transition-all duration-700 ease-in-out h-80 ${
           isVisible
             ? "opacity-100 translate-y-0 scale-100"
             : "opacity-0 translate-y-10 scale-95"
@@ -60,7 +60,7 @@ function ProjectCard({ imagePath, description, href }) {
               transition: "transform 0.3s ease", // Add this line for smooth reset
             }}
           />
-          <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 bg-opacity-70 bg-purple">
+          <div className="relative bottom-0 -translate-x-14 -translate-y-24 p-4 w-full rounded translate-z-10 bg-opacity-60 bg-black">
             <p className="text-lg">{description}</p>
             <div className="w-full h-1 bg-white rounded"></div>
           </div>
