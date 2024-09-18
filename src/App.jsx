@@ -4,6 +4,7 @@ import ProjectCard from "./components/ui/projectCard";
 import BlockReveal from "./components/blockReveal";
 import Nav from "./components/nav";
 import Divider from "./components/divider";
+import TriPanel from "./components/TriPanel";
 
 import ATM from "./assets/ATM-app.png";
 import ATM_Website from "./assets/ATM-website.png";
@@ -14,6 +15,14 @@ import Cero from "./assets/Cero.png";
 import DataAnnotation from "./assets/dataAnnotation.jpg";
 import studentSuccess from "./assets/studentSuccess.png";
 import BWSIcon from "./assets/BWS-Logo.png";
+import Java from "./assets/java.svg";
+import Python from "./assets/python.svg";
+import C from "./assets/c.svg";
+import Cpp from "./assets/c++.svg";
+import JS from "./assets/js.svg";
+import TypeScript from "./assets/typeScript.svg";
+import HTML from "./assets/html.svg";
+import CSS from "./assets/css.svg";
 
 import rLogo from "./assets/R-logo.svg";
 
@@ -83,94 +92,165 @@ function App() {
 
   return (
     <>
-      {/* Sticky element that hides on scroll down and shows on scroll up */}
-      <nav
-        className={`flex justify-between items-center p-3 bg-darkGreen fixed top-0 z-50 w-full transition-transform duration-700 ${
-          navHidden ? "-translate-y-full" : "translate-y-0"
-        }`}
-      >
-        <a href="/">
-          <img
-            src={rLogo}
-            alt="R Logo"
-            className="w-8 animate-fade-in duration-700"
-          />
-        </a>
-        <Nav />
-      </nav>
-
-      <header className="p-4 flex space-x-4 pt-28">
-        <div>
+      <div className="flex flex-col">
+        {/* Sticky element that hides on scroll down and shows on scroll up */}
+        <nav
+          className={`flex justify-between items-center p-3 bg-darkGreen fixed top-0 z-50 w-full transition-transform duration-700 ${
+            navHidden ? "-translate-y-full" : "translate-y-0"
+          }`}
+        >
+          <a href="/">
+            <img
+              src={rLogo}
+              alt="R Logo"
+              className="w-8 animate-fade-in duration-700"
+            />
+          </a>
+          <Nav />
+        </nav>
+        <header className="p-4 flex space-x-4 pt-28">
           <div>
-            <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
-              <h1 className="text-white font-normal text-3xl m-4 font-Outfit ">
-                Hi, my name is{" "}
-                <span className="font-Indie font-normal text-3xl">
-                  Randy Dyer
-                </span>
-              </h1>
-            </BlockReveal>
+            <div>
+              <BlockReveal backgroundColor={"bg-cream"} delay={1000}>
+                <h1 className="text-white font-normal text-3xl m-4 font-Outfit ">
+                  Hi, my name is{" "}
+                  <span className="font-Indie font-normal text-3xl">
+                    Randy Dyer
+                  </span>
+                </h1>
+              </BlockReveal>
+            </div>
+            <div>
+              <BlockReveal backgroundColor={"bg-gold"} delay={1600}>
+                <h1 className="text-white text-2xl px-4 font-normal font-Outfit">
+                  I design and develop mobile apps and websites
+                </h1>
+              </BlockReveal>
+            </div>
           </div>
-          <div>
-            <BlockReveal backgroundColor={"bg-gold"} delay={1600}>
-              <h1 className="text-white text-2xl px-4 font-normal font-Outfit">
-                I design and develop mobile apps and websites
-              </h1>
-            </BlockReveal>
+        </header>
+        <Divider>
+          <h2>Projects</h2>
+        </Divider>
+        <div className="timeline flex justify-center items-start relative mt-24">
+          <div className="flex-col space-y-6 my-4">
+            <ProjectCard imagePath={ATM_logo} description="Patient Tracker" />
+            <ProjectCard
+              imagePath={ATM_Website}
+              description="Alton Therapeutic Massage"
+              href={"https://craniosacralmassagetherapy.com/"}
+            />
+            <ProjectCard
+              imagePath={BeyondTheVisual}
+              description="Beyond The Visual"
+              href={
+                "https://apps.apple.com/us/app/beyond-the-visual/id6444328107"
+              }
+            />
+            <ProjectCard
+              imagePath={BWHLogo}
+              description="Brighams and Womens"
+              href={
+                "https://docs.google.com/document/d/1nB_1RjJ3bOCf8VLKAoTiIXdCFOSljNsls4WEy7DaQo4/edit"
+              }
+            />
+            <ProjectCard
+              imagePath={Cero}
+              description="Cero Cooperative"
+              href={"https://www.cero.coop/"}
+            />
+            <ProjectCard
+              imagePath={studentSuccess}
+              description="Student Success App"
+              href={"https://studentsuccesshandbook.wpi.edu/"}
+            />
+            <ProjectCard
+              imagePath={BWSIcon}
+              description="Memory Matching Game"
+              href={"https://randyer.github.io/BWSmemoryMatchingGame/"}
+            />
           </div>
         </div>
-      </header>
-
-      <Divider>
-        <h2>Projects</h2>
-      </Divider>
-
-      <div className="timeline flex justify-center items-start relative mt-24">
-        <div className="flex-col space-y-6 my-4">
-          <ProjectCard imagePath={ATM_logo} description="Patient Tracker" />
-          <ProjectCard
-            imagePath={ATM_Website}
-            description="Alton Therapeutic Massage"
-            href={"https://craniosacralmassagetherapy.com/"}
-          />
-          <ProjectCard
-            imagePath={BeyondTheVisual}
-            description="Beyond The Visual"
-            href={
-              "https://apps.apple.com/us/app/beyond-the-visual/id6444328107"
-            }
-          />
-          <ProjectCard
-            imagePath={BWHLogo}
-            description="Brighams and Womens"
-            href={
-              "https://docs.google.com/document/d/1nB_1RjJ3bOCf8VLKAoTiIXdCFOSljNsls4WEy7DaQo4/edit"
-            }
-          />
-          <ProjectCard
-            imagePath={Cero}
-            description="Cero Cooperative"
-            href={"https://www.cero.coop/"}
-          />
-          <ProjectCard
-            imagePath={studentSuccess}
-            description="Student Success App"
-            href={"https://studentsuccesshandbook.wpi.edu/"}
-          />
-          <ProjectCard
-            imagePath={BWSIcon}
-            description="Memory Matching Game"
-            href={"https://randyer.github.io/BWSmemoryMatchingGame/"}
-          />
+        <div className="skills flex flex-col items-center justify-center">
+          <div className="flex flex-col justify-center">
+            <h1 className="text-4xl">Tools</h1>
+            <ul className="flex space-x-4 flex-wrap">
+              {sectionData[0].items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex flex-col justify-center">
+            <h1 className="text-4xl">Languages</h1>
+            <ul className="flex space-x-4 flex-wrap">
+              {sectionData[1].images.map((image, index) => (
+                <li key={index}>
+                  <img src={image.src} alt={image.alt} className="w-8" />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex flex-col justify-center">
+            <h1 className="text-4xl">Development</h1>
+            <ul className="flex space-x-4 flex-wrap">
+              {sectionData[2].items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
+
+        <div
+          className={`fixed left-3 w-[3px] max-h-[1/2vh] bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
+          style={timelineStyling}
+        ></div>
       </div>
-      {/* Scroll progress tracker */}
-      <div
-        className={`fixed left-3 w-[3px] max-h-[1/2vh] bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
-        style={timelineStyling}
-      ></div>
     </>
   );
 }
+
+const sectionData = [
+  {
+    title: "Tools",
+    items: [
+      "React",
+      "mySQL",
+      "mongoDB",
+      "Firebase",
+      "PostgreSQL",
+      "Skikit-learn",
+      "Node.js",
+      "Junit",
+      "Express.js",
+    ],
+  },
+  {
+    title: "Languages",
+    images: [
+      { src: Java, alt: "Java" },
+      { src: Python, alt: "Python" },
+      { src: C, alt: "C" },
+      { src: Cpp, alt: "C++" },
+      { src: JS, alt: "JavaScript" },
+      { src: TypeScript, alt: "TypeScript" },
+      { src: HTML, alt: "html" },
+      { src: CSS, alt: "css" },
+    ],
+  },
+  {
+    title: "Development",
+    items: [
+      "Agile",
+      "Expo",
+      "Github",
+      "Linux",
+      "AWS",
+      "macOS",
+      "Jira",
+      "Windows",
+      "Figma",
+    ],
+  },
+];
 
 export default App;
