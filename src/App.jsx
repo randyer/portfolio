@@ -49,13 +49,13 @@ function App() {
     setLastScrollTop(scrollTop);
 
     // Update timeline styling dynamically
-    if (scrollTop > 100) {
+    if (scrollTop > 140) {
       setTimelineStyling((prevStyling) => ({
         ...prevStyling,
         top: "90px",
         height: "250px",
       }));
-    } else if (scrollTop < 100) {
+    } else if (scrollTop < 140) {
       setTimelineStyling((prevStyling) => ({
         ...prevStyling,
         top: `120px`,
