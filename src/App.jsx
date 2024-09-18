@@ -4,8 +4,7 @@ import ProjectCard from "./components/ui/projectCard";
 import BlockReveal from "./components/blockReveal";
 import Nav from "./components/nav";
 import Divider from "./components/divider";
-import TriPanel from "./components/TriPanel";
-
+import TextBubble from "./components/textBubble";
 import ATM from "./assets/ATM-app.png";
 import ATM_Website from "./assets/ATM-website.png";
 import ATM_logo from "./assets/ATM-client-logo.png";
@@ -92,7 +91,7 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col flex-">
         {/* Sticky element that hides on scroll down and shows on scroll up */}
         <nav
           className={`flex justify-between items-center p-3 bg-darkGreen fixed top-0 z-50 w-full transition-transform duration-700 ${
@@ -129,7 +128,7 @@ function App() {
             </div>
           </div>
         </header>
-        <Divider>
+        <Divider className="flex-grow">
           <h2>Projects</h2>
         </Divider>
         <div className="timeline flex justify-center items-start relative mt-24">
@@ -171,34 +170,38 @@ function App() {
             />
           </div>
         </div>
-        <div className="skills flex flex-col items-center justify-center">
-          <div className="flex flex-col justify-center">
-            <h1 className="text-4xl">Tools</h1>
-            <ul className="flex space-x-4 flex-wrap">
-              {sectionData[0].items.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex flex-col justify-center">
-            <h1 className="text-4xl">Languages</h1>
-            <ul className="flex space-x-4 flex-wrap">
-              {sectionData[1].images.map((image, index) => (
-                <li key={index}>
-                  <img src={image.src} alt={image.alt} className="w-8" />
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex flex-col justify-center">
-            <h1 className="text-4xl">Development</h1>
-            <ul className="flex space-x-4 flex-wrap">
-              {sectionData[2].items.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
+        <Divider className="flex-grow">
+          <h2>Skills</h2>
+        </Divider>
+        <div id="skills" className="flex flex-wrap justify-center mx-2">
+          {tools.map((item) => (
+            <TextBubble>{item}</TextBubble>
+          ))}
+          {languages.map((item) => (
+            <TextBubble>{item}</TextBubble>
+          ))}
         </div>
+
+        <div
+          className="w-3/4 border-t-2
+         border-white self-center m-4 max-w-96"
+        ></div>
+
+        <div className="flex flex-wrap justify-center mx-2">
+          {development.map((item) => (
+            <TextBubble>{item}</TextBubble>
+          ))}
+        </div>
+        {/* <Divider className="flex-grow">
+          <h2>Languages</h2>
+        </Divider> */}
+        {/* <ul className="flex space-x-4 flex-wrap">
+          {languages.map((item) => (
+            <li>
+              <img src={item.src} alt={item.alt} className="w-8" />
+            </li>
+          ))}
+        </ul> */}
 
         <div
           className={`fixed left-3 w-[3px] max-h-[1/2vh] bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
@@ -208,6 +211,43 @@ function App() {
     </>
   );
 }
+
+const tools = [
+  "React",
+  "mySQL",
+  "mongoDB",
+  "Firebase",
+  "PostgreSQL",
+  "Skikit-learn",
+  "Node.js",
+  "Junit",
+  "Express.js",
+];
+
+const development = [
+  "Agile",
+  "Expo",
+  "Github",
+  "Linux",
+  "AWS",
+  "macOS",
+  "Jira",
+  "Windows",
+  "Figma",
+];
+
+const languagesIcon = [
+  { src: Java, alt: "Java" },
+  { src: Python, alt: "Python" },
+  { src: C, alt: "C" },
+  { src: Cpp, alt: "C++" },
+  { src: JS, alt: "JavaScript" },
+  { src: TypeScript, alt: "TypeScript" },
+  { src: HTML, alt: "html" },
+  { src: CSS, alt: "css" },
+];
+
+const languages = ["Java", "Python", "C", "C++", "JavaScript", "TypeScript"];
 
 const sectionData = [
   {
@@ -238,7 +278,7 @@ const sectionData = [
     ],
   },
   {
-    title: "Development",
+    title: "development",
     items: [
       "Agile",
       "Expo",

@@ -80,6 +80,7 @@ export default function Nav() {
               <a
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
                 href="/"
+                onClick={toggleMenu}
               >
                 <div className="my-2 text-lg text-white font-medium underline">
                   Projects
@@ -93,7 +94,8 @@ export default function Nav() {
             <li className="row-span-3">
               <a
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
-                href="/skills"
+                href="#skills"
+                onClick={toggleMenu}
               >
                 <div className="my-2 text-lg text-white font-medium underline">
                   Skills
@@ -107,6 +109,7 @@ export default function Nav() {
               <a
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
                 href="/about"
+                onClick={toggleMenu}
               >
                 <div className="my-2 text-lg text-white font-medium underline">
                   About
