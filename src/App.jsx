@@ -24,6 +24,9 @@ import HTML from "./assets/html.svg";
 import CSS from "./assets/css.svg";
 
 import rLogo from "./assets/R-logo.svg";
+import gitHubIcon from "./assets/github.svg";
+import linkedInIcon from "./assets/linkedin.svg";
+import emailIcon from "./assets/email.svg";
 
 function App() {
   const [lastScrollTop, setLastScrollTop] = useState(0); // To track the previous scroll position
@@ -86,7 +89,7 @@ function App() {
   return (
     <>
       <div className="flex flex-col flex-">
-        {/* Sticky element that hides on scroll down and shows on scroll up */}
+        {/* /* Sticky element that hides on scroll down and shows on scroll up */}
         <nav
           className={`flex justify-between items-center p-3 bg-darkGreen fixed top-0 z-50 w-full transition-transform duration-700 ${
             navHidden ? "-translate-y-full" : "translate-y-0"
@@ -178,7 +181,7 @@ function App() {
 
         <div
           className="w-3/4 border-t-2
-         border-white self-center m-4 max-w-96"
+           border-white self-center m-4 max-w-96"
         ></div>
 
         <div className="flex flex-wrap justify-center mx-2">
@@ -187,15 +190,38 @@ function App() {
           ))}
         </div>
         {/* <Divider className="flex-grow">
-          <h2>Languages</h2>
-        </Divider> */}
+              <h2>Languages</h2>
+              </Divider> */}
+        <footer
+          id="footer"
+          className="p-4 bg-darkGreen text-white text-center mt-10"
+        >
+          <p className="pb-6">Contact me</p>
+          <div className="flex justify-center space-x-4">
+            <a href="https://github.com/randyer">
+              <img src={gitHubIcon} alt="GitHub" className="w-9" />
+            </a>
+            <a href="https://www.linkedin.com/in/randy-dyer-7556b2213/">
+              <img src={linkedInIcon} alt="LinkedIn" className="w-10" />
+            </a>
+            <img
+              src={emailIcon}
+              alt="Email"
+              className="w-10 cursor-pointer"
+              onClick={() => {
+                navigator.clipboard.writeText("rbdyer3@gmail.com");
+                alert("Email copied to clipboard!");
+              }}
+            />
+          </div>
+        </footer>
         {/* <ul className="flex space-x-4 flex-wrap">
-          {languages.map((item) => (
-            <li>
-              <img src={item.src} alt={item.alt} className="w-8" />
-            </li>
-          ))}
-        </ul> */}
+              {languages.map((item) => (
+              <li>
+                <img src={item.src} alt={item.alt} className="w-8" />
+              </li>
+              ))}
+            </ul> */}
 
         <div
           className={`fixed left-3 w-[3px] bg-[#FE6E35] transition-all duration-700 ease-out rounded`}

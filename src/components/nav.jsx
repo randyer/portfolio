@@ -108,14 +108,14 @@ export default function Nav() {
             <li className="row-span-3">
               <a
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
-                href="/about"
+                href="#footer"
                 onClick={toggleMenu}
               >
                 <div className="my-2 text-lg text-white font-medium underline">
-                  About
+                  Contact
                 </div>
                 <p className="text-sm leading-tight text-muted-foreground">
-                  Learn more about me.
+                  Contact me.
                 </p>
               </a>
             </li>
