@@ -19,36 +19,53 @@ import rLogo from "./assets/R-logo.svg";
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(12);
-  const [initialTop, setInitialTop] = useState("100vh"); // Start from the bottom of the viewport
-  const [animateInitial, setAnimateInitial] = useState(true); // To trigger the initial top position animation
   const [scrollDirection, setScrollDirection] = useState("up"); // New state to track scroll direction
   const [lastScrollTop, setLastScrollTop] = useState(0); // To track the previous scroll position
   const [navHidden, setNavHidden] = useState(false); // State to hide/show the nav
+  const [timelineStyling, setTimelineStyling] = useState({
+    top: `1000px`, // Move from bottom to top on load
+    height: `${scrollProgress}vh`, // Follows scroll progress after initial animation
+    maxHeight: "50vh",
+  });
 
   // Function to update scroll progress and direction
   const handleScroll = () => {
     const scrollTop = window.pageYOffset;
     const winHeight = window.innerHeight;
+
+    // Set the top value based on scroll position, until it hits the top of the viewport (120px in this case)
+
     const docHeight = document.documentElement.scrollHeight;
-    const totalScroll = (scrollTop / (docHeight - winHeight)) * 100 + 12;
+    const totalScroll = (scrollTop / (docHeight - winHeight)) * 100;
     setScrollProgress(totalScroll);
 
-    // Detect scroll direction
-    if (scrollTop > 80) {
-      // Only apply the effect after scrolling down 100px
-
-      if (scrollTop > lastScrollTop) {
-        // User is scrolling down
-        setScrollDirection("down");
-        setNavHidden(true); // Hide the sticky element
-      } else {
-        // User is scrolling up
-        setScrollDirection("up");
-        setNavHidden(false); // Show the sticky element
-      }
-
-      setLastScrollTop(scrollTop); // Update last scroll position
+    if (scrollTop > lastScrollTop) {
+      setScrollDirection("down");
+      setNavHidden(true);
+    } else {
+      setScrollDirection("up");
+      setNavHidden(false);
     }
+    setLastScrollTop(scrollTop);
+
+    // Update timeline styling dynamically
+    if (scrollTop > 100) {
+      setTimelineStyling((prevStyling) => ({
+        ...prevStyling,
+        top: "90px",
+        height: "250px",
+      }));
+    } else if (scrollTop < 100) {
+      setTimelineStyling((prevStyling) => ({
+        ...prevStyling,
+        top: `120px`,
+        height: "82px",
+      }));
+    }
+    // setTimelineStyling((prevStyling) => ({
+    //   ...prevStyling,
+    //   height: `${totalScroll + 12}vh`, // Update the height based on scroll progress
+    // }));
   };
 
   // Add event listener to update scroll progress and direction
@@ -62,8 +79,9 @@ function App() {
   // Trigger the initial load animation to move the line from the bottom to its starting position
   useEffect(() => {
     const initialAnimationTimer = setTimeout(() => {
-      setInitialTop("36px"); // Set the top to the final position after the animation
-      setAnimateInitial(false); // Disable initial animation once done
+      // setInitialTop("52px"); // Set the top to the final position after the animation
+      // setAnimateInitial(false); // Disable initial animation once done
+      setTimelineStyling({ ...timelineStyling, top: "120px" });
     }, 2200);
 
     return () => clearTimeout(initialAnimationTimer);
@@ -111,7 +129,7 @@ function App() {
         <h2>Projects</h2>
       </Divider>
 
-      <div className="timeline flex justify-center items-start relative">
+      <div className="timeline flex justify-center items-start relative mt-24">
         <div className="flex-col space-y-6 my-4">
           <ProjectCard imagePath={ATM_logo} description="Patient Tracker" />
           <ProjectCard
@@ -149,17 +167,12 @@ function App() {
             href={"https://randyer.github.io/BWSmemoryMatchingGame/"}
           />
         </div>
-
-        {/* Scroll progress tracker */}
-        <div
-          className={`fixed left-3 w-[3px] max-h-[1/2vh] bg-[#FE6E35] transition-all duration-500 ease-out rounded`}
-          style={{
-            top: animateInitial ? initialTop : `120px`, // Move from bottom to top on load
-            height: `${scrollProgress}vh`, // Follows scroll progress after initial animation
-            maxHeight: "85vh",
-          }}
-        ></div>
       </div>
+      {/* Scroll progress tracker */}
+      <div
+        className={`fixed left-3 w-[3px] max-h-[1/2vh] bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
+        style={timelineStyling}
+      ></div>
     </>
   );
 }

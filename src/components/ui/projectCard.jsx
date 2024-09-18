@@ -42,7 +42,7 @@ function ProjectCard({ imagePath, description, href }) {
     <a href={href}>
       <div
         ref={cardRef}
-        className={`text-white overflow-visible w-52 transform transition-all duration-700 ease-in-out h-80 ${
+        className={`text-white overflow-visible w-44 transform transition-all duration-700 ease-in-out h-80 ${
           isVisible
             ? "opacity-100 translate-y-0 scale-100"
             : "opacity-0 translate-y-10 scale-95"
