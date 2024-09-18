@@ -30,7 +30,7 @@ function App() {
 
   // Function to update scroll progress and direction
   const handleScroll = () => {
-    const scrollTop = window.pageYOffset;
+    const scrollTop = window.scrollY;
     const winHeight = window.innerHeight;
 
     // Set the top value based on scroll position, until it hits the top of the viewport (120px in this case)
