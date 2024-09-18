@@ -26,14 +26,12 @@ import CSS from "./assets/css.svg";
 import rLogo from "./assets/R-logo.svg";
 
 function App() {
-  // const [scrollProgress, setScrollProgress] = useState(12);
-  const [scrollDirection, setScrollDirection] = useState("up"); // New state to track scroll direction
   const [lastScrollTop, setLastScrollTop] = useState(0); // To track the previous scroll position
   const [navHidden, setNavHidden] = useState(false); // State to hide/show the nav
   const [timelineStyling, setTimelineStyling] = useState({
     top: `1000px`, // Move from bottom to top on load
     height: "82px", // Follows scroll progress after initial animation
-    maxHeight: "50vh",
+    // maxHeight: "50vh",
   });
 
   // Function to update scroll progress and direction
@@ -41,19 +39,15 @@ function App() {
     const scrollTop = window.scrollY;
     const winHeight = window.innerHeight;
 
-    // Set the top value based on scroll position, until it hits the top of the viewport (120px in this case)
-
-    const docHeight = document.documentElement.scrollHeight;
-    // const totalScroll = (scrollTop / (docHeight - winHeight)) * 100;
-    // setScrollProgress(totalScroll);
-
+    // Update the navHidden state when scrolling down or up
     if (scrollTop > lastScrollTop) {
-      setScrollDirection("down");
-      setNavHidden(true);
+      if (scrollTop > 100) {
+        setNavHidden(true);
+      }
     } else {
-      setScrollDirection("up");
       setNavHidden(false);
     }
+
     setLastScrollTop(scrollTop);
 
     // Update timeline styling dynamically
@@ -61,7 +55,7 @@ function App() {
       setTimelineStyling((prevStyling) => ({
         ...prevStyling,
         top: "90px",
-        height: "250px",
+        height: "80vh",
       }));
     } else if (scrollTop < 140) {
       setTimelineStyling((prevStyling) => ({
@@ -204,7 +198,7 @@ function App() {
         </ul> */}
 
         <div
-          className={`fixed left-3 w-[3px] max-h-[1/2vh] bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
+          className={`fixed left-3 w-[3px] bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
           style={timelineStyling}
         ></div>
       </div>
