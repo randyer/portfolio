@@ -62,7 +62,7 @@ function ProjectCard({ imagePath, title, description, href }) {
             isVisible
               ? "opacity-100 translate-y-0 scale-100"
               : "opacity-0 translate-y-10 scale-95"
-          } md:w-full md:mb-16 md:flex md:p-16 md:rounded-xl max-w-4xl md:ring-2 md:ring-cream/40 md:ring- md:shadow-2xl md:gap-16 md:bg-black`}
+          } md:w-full md:mb-16 md:flex md:p-16 md:rounded-xl max-w-4xl md:ring-2 md:ring-cream/40 md:ring- md:shadow-2xl md:gap-16 md:bg-black/85`}
         >
           <img
             ref={cardRef}
