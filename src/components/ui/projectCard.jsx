@@ -55,21 +55,20 @@ function ProjectCard({ imagePath, title, description, href }) {
 
   return (
     <>
-      {/* {isMediumScreen ? ( */}
       <a href={href}>
         <div
           ref={cardRef}
-          className={`text-white overflow-visible transform justify-between transition-all duration-700 ease-in-out w-44 h-72 ${
+          className={`text-white overflow-visible transform justify-between transition duration-700 ease-in-out w-52 ${
             isVisible
               ? "opacity-100 translate-y-0 scale-100"
               : "opacity-0 translate-y-10 scale-95"
-          } md:w-full md:h-72 md:mb-16 md:flex md:p-8 md:rounded-xl max-w-3xl md:gap-4`}
+          } md:w-full md:mb-16 md:flex md:p-16 md:rounded-xl max-w-4xl md:ring-2 md:ring-cream/40 md:ring- md:shadow-2xl md:gap-16 md:bg-black`}
         >
           <img
             ref={cardRef}
             src={imagePath}
             alt="image"
-            className={`object-cover object-top aspect-square size-44 rounded-xl md:size-72 `}
+            className={`object-cover object-top aspect-square rounded-xl md:max-h-72 md:h-full`}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
@@ -77,10 +76,10 @@ function ProjectCard({ imagePath, title, description, href }) {
               transition: "transform 0.3s ease", // Add this line for smooth reset
             }}
           />
-          <div className="relative bg-darkGreen bg-opacity-80 rounded-xl p-4 w-full -translate-x-14 -translate-y-24 bottom-0 translate-z-10 md:translate-x-0 md:translate-y-0">
+          <div className="self-start relative bg-darkGreen bg-opacity-80 rounded-xl p-4 w-full -translate-x-14 -translate-y-24 bottom-0 translate-z-10 md:translate-x-0 md:translate-y-0">
             <p className="text-lg">{title}</p>
             <div className="w-full h-1 bg-white rounded"></div>
-            <p className="text-lg hidden md:block ">{description}</p>
+            <p className="text-lg hidden md:block pt-2">{description}</p>
           </div>
         </div>
       </a>

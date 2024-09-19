@@ -129,18 +129,18 @@ function App() {
             <ProjectCard
               imagePath={ATM_logo}
               title="Patient Tracker"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum."
+              description=""
             />
             <ProjectCard
               imagePath={ATM_Website}
               title="Alton Therapeutic Massage"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit quis urna tincidunt tristique."
+              description="The website for Alton Therapeutic Massage, a local business based in Alton, NH. Developed and maintained by me."
               href={"https://craniosacralmassagetherapy.com/"}
             />
             <ProjectCard
               imagePath={BeyondTheVisual}
               title="Beyond The Visual"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec eros nec dui placerat feugiat."
+              description="The Worcester Art museum's mobile app for visually impaired guests. This app allows visitors to get detailed descriptions of the art pieces on display in the gallery."
               href={
                 "https://apps.apple.com/us/app/beyond-the-visual/id6444328107"
               }
@@ -148,7 +148,7 @@ function App() {
             <ProjectCard
               imagePath={BWHLogo}
               title="Brighams and Womens"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum turpis et turpis tristique condimentum."
+              description="An application for the Brighams and Women's hospital that enables hospital administrators to efficiently manage service requests, patient and employee lists, room assignments, and other essential tasks. Employees can easily view their responsibilities and navigate the hospital. Patients benefit by staying informed of notifications, signing up for text message alerts, and navigating the hosptial."
               href={
                 "https://docs.google.com/document/d/1nB_1RjJ3bOCf8VLKAoTiIXdCFOSljNsls4WEy7DaQo4/edit"
               }
@@ -156,19 +156,19 @@ function App() {
             <ProjectCard
               imagePath={Cero}
               title="Cero Cooperative"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nam gravida orci sit amet ligula elementum placerat."
+              description="The website for Cero Cooperative, a composting company based in Boston Massachusetts. As an intern, I worked on enhancing the user interface for their website. This included implementing responsive web design, updating page layouts, and organizing content."
               href={"https://www.cero.coop/"}
             />
             <ProjectCard
               imagePath={studentSuccess}
-              title="Student Success App"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac lectus nec felis viverra aliquam."
+              title="Student Success"
+              description="A virtual handbook for students at Worcester Polytechnic Institute. This handbook is designed to ensure that all students have access to the resources on campus that promote student success. It highlights a variety of strategies and tools tailored to support the diverse student body, helping incoming students find the right resources."
               href={"https://studentsuccesshandbook.wpi.edu/"}
             />
             <ProjectCard
               imagePath={BWSIcon}
               title="Memory Matching Game"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras venenatis euismod elit, at varius dui sollicitudin id."
+              description="A memory matching game to teach kids about water conservation. I developed this game working as an intern for the Board of Water Supply in Oahu, Hawaii."
               href={"https://randyer.github.io/BWSmemoryMatchingGame/"}
             />
           </div>
@@ -188,10 +188,10 @@ function App() {
               <TextBubble>{item}</TextBubble>
             ))}
           </div>
-          <div
+          {/* <div
             className="w-3/4 border-t-2
            border-white self-center m-4 max-w-96 lg:hidden "
-          ></div>
+          ></div> */}
           <div className="flex flex-wrap self-center justify-center mx-2 max-w-4xl">
             {development.map((item) => (
               <TextBubble>{item}</TextBubble>
@@ -224,7 +224,7 @@ function App() {
           </div>
         </footer>
         <div
-          className={`fixed left-3 w-[3px] bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
+          className={`fixed left-3 w-1 bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
           style={timelineStyling}
         ></div>
       </div>
