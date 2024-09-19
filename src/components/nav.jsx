@@ -61,7 +61,7 @@ export default function Nav() {
       </button>
 
       {/* Large screen text-based navigation */}
-      <div className="hidden lg:flex space-x-4">
+      <div className="hidden lg:flex space-x-4 pr-4">
         <a className="text-lg font-medium text-white hover:underline" href="/">
           Projects
         </a>
