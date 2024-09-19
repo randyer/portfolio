@@ -126,39 +126,49 @@ function App() {
         </Divider>
         <div className="timeline flex justify-center items-start relative mt-10">
           <div className="flex-col space-y-6 my-4">
-            <ProjectCard imagePath={ATM_logo} description="Patient Tracker" />
+            <ProjectCard
+              imagePath={ATM_logo}
+              title="Patient Tracker"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum."
+            />
             <ProjectCard
               imagePath={ATM_Website}
-              description="Alton Therapeutic Massage"
+              title="Alton Therapeutic Massage"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit quis urna tincidunt tristique."
               href={"https://craniosacralmassagetherapy.com/"}
             />
             <ProjectCard
               imagePath={BeyondTheVisual}
-              description="Beyond The Visual"
+              title="Beyond The Visual"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec eros nec dui placerat feugiat."
               href={
                 "https://apps.apple.com/us/app/beyond-the-visual/id6444328107"
               }
             />
             <ProjectCard
               imagePath={BWHLogo}
-              description="Brighams and Womens"
+              title="Brighams and Womens"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum turpis et turpis tristique condimentum."
               href={
                 "https://docs.google.com/document/d/1nB_1RjJ3bOCf8VLKAoTiIXdCFOSljNsls4WEy7DaQo4/edit"
               }
             />
             <ProjectCard
               imagePath={Cero}
-              description="Cero Cooperative"
+              title="Cero Cooperative"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nam gravida orci sit amet ligula elementum placerat."
               href={"https://www.cero.coop/"}
             />
             <ProjectCard
               imagePath={studentSuccess}
-              description="Student Success App"
+              title="Student Success App"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac lectus nec felis viverra aliquam."
               href={"https://studentsuccesshandbook.wpi.edu/"}
             />
             <ProjectCard
               imagePath={BWSIcon}
-              description="Memory Matching Game"
+              title="Memory Matching Game"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras venenatis euismod elit, at varius dui sollicitudin id."
               href={"https://randyer.github.io/BWSmemoryMatchingGame/"}
             />
           </div>
