@@ -129,7 +129,7 @@ function App() {
             <ProjectCard
               imagePath={ATM_logo}
               title="Patient Tracker"
-              description=""
+              description="A web based mobile app for tracking patient information. This app allows users to view patient information, add new patients, and update existing patient information. The app is designed to be used by massage therapists to keep track of their clients."
             />
             <ProjectCard
               imagePath={ATM_Website}
