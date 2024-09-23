@@ -175,12 +175,9 @@ function App() {
           </div>
         </div>
         <Divider className="flex-grow">
-          <h2>Skills</h2>
+          <h2 id="skills">Skills</h2>
         </Divider>
-        <div
-          id="skills"
-          className="flex flex-wrap self-center justify-center mx-2 max-w-4xl"
-        >
+        <div className="flex flex-wrap self-center justify-center mx-2 max-w-4xl">
           <div className="flex flex-wrap self-center justify-center mx-2 max-w-4xl">
             {tools.map((item) => (
               <TextBubble>{item}</TextBubble>
