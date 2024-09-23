@@ -3,29 +3,25 @@ import { useState, useEffect, useRef } from "react";
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
-  const menuRef = useRef(null); // Reference to the menu container
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     if (isMenuOpen) {
-      // Trigger fade-out and hamburger animation simultaneously
       setIsFadingOut(true);
-
-      // After animation completes, hide the menu
       setTimeout(() => {
         setIsMenuOpen(false);
-        setIsFadingOut(false); // Reset fade state after menu closes
-      }, 300); // Match this to the fade-out animation duration
+        setIsFadingOut(false);
+      }, 300);
     } else {
       setIsMenuOpen(true);
     }
   };
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         if (isMenuOpen) {
-          toggleMenu(); // Close menu when clicking outside
+          toggleMenu();
         }
       }
     };
@@ -38,32 +34,52 @@ export default function Nav() {
 
   return (
     <>
+      {/* Hamburger button for small screens */}
       <button
         id="hamburger-button"
-        className="z-50 h-8 min-w-8 top-4 cursor-pointer text-3xl md:hidden duration-700 animate-fade-in duration-700"
+        className="z-50 h-8 min-w-8 top-4 cursor-pointer text-3xl lg:hidden duration-700 animate-fade-in"
         onClick={toggleMenu}
       >
         {/* Top bar */}
         <div
-          className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-transform duration-500
-                  ${isMenuOpen ? "origin-center -rotate-45" : "translate-y-3"}
-                `}
+          className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-transform duration-500 ${
+            isMenuOpen ? "origin-center -rotate-45" : "translate-y-3"
+          }`}
         ></div>
         {/* Middle bar */}
         <div
-          className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-opacity duration-500
-                  ${isMenuOpen ? "opacity-0" : ""}
-                `}
+          className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-opacity duration-500 ${
+            isMenuOpen ? "opacity-0" : ""
+          }`}
         ></div>
         {/* Bottom bar */}
         <div
-          className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-transform duration-500
-                  ${isMenuOpen ? "origin-center rotate-45" : "-translate-y-3"}
-                `}
+          className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-transform duration-500 ${
+            isMenuOpen ? "origin-center rotate-45" : "-translate-y-3"
+          }`}
         ></div>
       </button>
 
-      {/* Ensure both the menu is open or fading out */}
+      {/* Large screen text-based navigation */}
+      <div className="hidden lg:flex space-x-4 pr-4">
+        <a className="text-lg font-medium text-white hover:underline" href="/">
+          Projects
+        </a>
+        <a
+          className="text-lg font-medium text-white hover:underline"
+          href="#skills"
+        >
+          Skills
+        </a>
+        <a
+          className="text-lg font-medium text-white hover:underline"
+          href="#footer"
+        >
+          Contact
+        </a>
+      </div>
+
+      {/* Small screen dropdown menu */}
       {(isMenuOpen || isFadingOut) && (
         <div
           ref={menuRef}
@@ -73,10 +89,8 @@ export default function Nav() {
               : "animate-fade-out duration-150"
           }`}
         >
-          <ul
-            className={`grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]`}
-          >
-            <li className="row-span-3">
+          <ul className={`grid gap-2`}>
+            <li>
               <a
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
                 href="/"
@@ -90,8 +104,7 @@ export default function Nav() {
                 </p>
               </a>
             </li>
-
-            <li className="row-span-3">
+            <li>
               <a
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
                 href="#skills"
@@ -105,7 +118,7 @@ export default function Nav() {
                 </p>
               </a>
             </li>
-            <li className="row-span-3">
+            <li>
               <a
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
                 href="#footer"
