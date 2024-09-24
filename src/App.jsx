@@ -12,14 +12,6 @@ import BWHLogo from "./assets/BWH.webp";
 import Cero from "./assets/Cero.png";
 import studentSuccess from "./assets/studentSuccess.png";
 import BWSIcon from "./assets/BWS-Logo.png";
-import Java from "./assets/java.svg";
-import Python from "./assets/python.svg";
-import C from "./assets/c.svg";
-import Cpp from "./assets/c++.svg";
-import JS from "./assets/js.svg";
-import TypeScript from "./assets/typeScript.svg";
-import HTML from "./assets/html.svg";
-import CSS from "./assets/css.svg";
 
 import rLogo from "./assets/R-logo.svg";
 import gitHubIcon from "./assets/github.svg";
@@ -186,10 +178,6 @@ function App() {
               <TextBubble>{item}</TextBubble>
             ))}
           </div>
-          {/* <div
-            className="w-3/4 border-t-2
-           border-white self-center m-4 max-w-96 lg:hidden "
-          ></div> */}
           <div className="flex flex-wrap self-center justify-center mx-2 max-w-4xl">
             {development.map((item) => (
               <TextBubble>{item}</TextBubble>
@@ -252,17 +240,6 @@ const development = [
   "Jira",
   "Windows",
   "Figma",
-];
-
-const languagesIcon = [
-  { src: Java, alt: "Java" },
-  { src: Python, alt: "Python" },
-  { src: C, alt: "C" },
-  { src: Cpp, alt: "C++" },
-  { src: JS, alt: "JavaScript" },
-  { src: TypeScript, alt: "TypeScript" },
-  { src: HTML, alt: "html" },
-  { src: CSS, alt: "css" },
 ];
 
 const languages = ["Java", "Python", "C", "C++", "JavaScript", "TypeScript"];
