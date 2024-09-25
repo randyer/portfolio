@@ -12,11 +12,28 @@ import BWHLogo from "./assets/BWH.webp";
 import Cero from "./assets/Cero.png";
 import studentSuccess from "./assets/studentSuccess.png";
 import BWSIcon from "./assets/BWS-Logo.png";
+import Lenis from "lenis";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 import rLogo from "./assets/R-logo.svg";
 import gitHubIcon from "./assets/github.svg";
 import linkedInIcon from "./assets/linkedin.svg";
 import emailIcon from "./assets/email.svg";
+
+const lenis = new Lenis();
+
+lenis.on("scroll", (e) => {
+  console.log(e);
+});
+
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
 
 function App() {
   const [lastScrollTop, setLastScrollTop] = useState(0); // To track the previous scroll position
