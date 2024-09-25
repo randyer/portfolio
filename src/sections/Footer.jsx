@@ -9,8 +9,16 @@ const Footer = forwardRef((props, ref) => {
   const [showNotification, setShowNotification] = useState(false);
 
   const handleEmailClick = () => {
-    setShowNotification(true);
-    setTimeout(() => setShowNotification(false), 3000);
+    const email = "rbdyer3@gmail.com";
+    navigator.clipboard
+      .writeText(email)
+      .then(() => {
+        setShowNotification(true);
+        setTimeout(() => setShowNotification(false), 3000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy email: ", err);
+      });
   };
 
   return (
