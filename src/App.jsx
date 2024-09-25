@@ -35,11 +35,11 @@ function App() {
   const skillsRef = useRef(null);
   const footerRef = useRef(null);
 
-  const [lastScrollTop, setLastScrollTop] = useState(0); // To track the previous scroll position
-  const [navHidden, setNavHidden] = useState(false); // State to hide/show the nav
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [navHidden, setNavHidden] = useState(false);
   const [timelineStyling, setTimelineStyling] = useState({
     top: `1000px`, // Move from bottom to top on load
-    height: "82px", // Follows scroll progress after initial animation
+    height: "82px",
   });
 
   // Function to update scroll progress and direction
@@ -91,27 +91,24 @@ function App() {
   }, []);
 
   return (
-    <>
-      <div className="flex flex-col flex-">
-        {/* /* Sticky element that hides on scroll down and shows on scroll up */}
-        <Nav
-          navHidden={navHidden}
-          setNavHidden={setNavHidden}
-          projectsRef={projectsRef}
-          skillsRef={skillsRef}
-          footerRef={footerRef}
-        />
-        <Header />
-        <Projects ref={projectsRef} />
-        <Skills ref={skillsRef} />
-        <Footer ref={footerRef} />
+    <div className="flex flex-col flex-">
+      <Nav
+        navHidden={navHidden}
+        setNavHidden={setNavHidden}
+        projectsRef={projectsRef}
+        skillsRef={skillsRef}
+        footerRef={footerRef}
+      />
+      <Header />
+      <Projects ref={projectsRef} />
+      <Skills ref={skillsRef} />
+      <Footer ref={footerRef} />
 
-        <div
-          className={`fixed left-3 w-1 bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
-          style={timelineStyling}
-        ></div>
-      </div>
-    </>
+      <div
+        className={`fixed left-3 w-1 bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
+        style={timelineStyling}
+      ></div>
+    </div>
   );
 }
 

@@ -26,8 +26,7 @@ const Skills = forwardRef((props, ref) => {
   const languages = [
     "Java",
     "Python",
-    "C",
-    "C++",
+    "C/C++",
     "mySQL",
     "JavaScript",
     "TypeScript",
