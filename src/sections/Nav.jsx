@@ -1,10 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import rLogo from "../assets/R-logo.svg";
 
-export default function Nav() {
+export default function Nav({
+  navHidden,
+  setNavHidden,
+  projectsRef,
+  skillsRef,
+  footerRef,
+}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const menuRef = useRef(null);
 
+  // Toggle the mobile menu
   const toggleMenu = () => {
     if (isMenuOpen) {
       setIsFadingOut(true);
@@ -17,6 +25,7 @@ export default function Nav() {
     }
   };
 
+  // Close the menu if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -32,27 +41,59 @@ export default function Nav() {
     };
   }, [isMenuOpen]);
 
+  // Hide or show the navbar on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setNavHidden(true);
+      } else {
+        setNavHidden(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Function to handle smooth scroll when clicking the nav links
+  const handleScrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <>
+    <nav
+      className={`flex justify-between items-center p-3 bg-darkGreen fixed top-0 z-50 w-full transition-transform duration-700 ${
+        navHidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
+      {/* Logo */}
+      <a href="/">
+        <img
+          src={rLogo}
+          alt="R Logo"
+          className="w-8 animate-fade-in duration-700"
+        />
+      </a>
+
       {/* Hamburger button for small screens */}
       <button
         id="hamburger-button"
         className="z-50 h-8 min-w-8 top-4 cursor-pointer text-3xl lg:hidden duration-700 animate-fade-in"
         onClick={toggleMenu}
       >
-        {/* Top bar */}
+        {/* Hamburger button bars */}
         <div
           className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-transform duration-500 ${
             isMenuOpen ? "origin-center -rotate-45" : "translate-y-3"
           }`}
         ></div>
-        {/* Middle bar */}
         <div
           className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-opacity duration-500 ${
             isMenuOpen ? "opacity-0" : ""
           }`}
         ></div>
-        {/* Bottom bar */}
         <div
           className={`absolute -mt-0.5 h-1 w-8 rounded bg-orange transition-transform duration-500 ${
             isMenuOpen ? "origin-center rotate-45" : "-translate-y-3"
@@ -62,21 +103,24 @@ export default function Nav() {
 
       {/* Large screen text-based navigation */}
       <div className="hidden lg:flex space-x-4 pr-4">
-        <a className="text-lg font-medium text-white hover:underline" href="/">
-          Projects
-        </a>
-        <a
+        <button
           className="text-lg font-medium text-white hover:underline"
-          href="#skills"
+          onClick={() => handleScrollToSection(projectsRef)}
+        >
+          Projects
+        </button>
+        <button
+          className="text-lg font-medium text-white hover:underline"
+          onClick={() => handleScrollToSection(skillsRef)}
         >
           Skills
-        </a>
-        <a
+        </button>
+        <button
           className="text-lg font-medium text-white hover:underline"
-          href="#footer"
+          onClick={() => handleScrollToSection(footerRef)}
         >
           Contact
-        </a>
+        </button>
       </div>
 
       {/* Small screen dropdown menu */}
@@ -91,10 +135,12 @@ export default function Nav() {
         >
           <ul className={`grid gap-2`}>
             <li>
-              <a
+              <button
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
-                href="/"
-                onClick={toggleMenu}
+                onClick={() => {
+                  handleScrollToSection(projectsRef);
+                  toggleMenu();
+                }}
               >
                 <div className="my-2 text-lg text-white font-medium underline">
                   Projects
@@ -102,13 +148,15 @@ export default function Nav() {
                 <p className="text-sm leading-tight text-muted-foreground">
                   Check out my latest projects.
                 </p>
-              </a>
+              </button>
             </li>
             <li>
-              <a
+              <button
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
-                href="#skills"
-                onClick={toggleMenu}
+                onClick={() => {
+                  handleScrollToSection(skillsRef);
+                  toggleMenu();
+                }}
               >
                 <div className="my-2 text-lg text-white font-medium underline">
                   Skills
@@ -116,13 +164,15 @@ export default function Nav() {
                 <p className="text-sm leading-tight text-muted-foreground">
                   Explore my skills and expertise.
                 </p>
-              </a>
+              </button>
             </li>
             <li>
-              <a
+              <button
                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-darkGreen p-3 no-underline focus:shadow-md"
-                href="#footer"
-                onClick={toggleMenu}
+                onClick={() => {
+                  handleScrollToSection(footerRef);
+                  toggleMenu();
+                }}
               >
                 <div className="my-2 text-lg text-white font-medium underline">
                   Contact
@@ -130,11 +180,11 @@ export default function Nav() {
                 <p className="text-sm leading-tight text-muted-foreground">
                   Contact me.
                 </p>
-              </a>
+              </button>
             </li>
           </ul>
         </div>
       )}
-    </>
+    </nav>
   );
 }
