@@ -24,10 +24,12 @@ const Footer = forwardRef((props, ref) => {
   return (
     <>
       {/* Toast Notification */}
-      <ToastNotification
-        show={showNotification}
-        message="Email copied to clipboard!"
-      />
+      {showNotification && (
+        <ToastNotification
+          show={showNotification}
+          message="Email copied to clipboard!"
+        />
+      )}
 
       {/* Footer Component */}
       <footer
