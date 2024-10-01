@@ -79,10 +79,10 @@ function App() {
       { y: 1000, height: 0 },
       {
         y: 0,
-        ease: "power3.inOut",
-        duration: 2.2,
+        ease: "elastic.inOut(1,1.2)",
+        duration: 3,
         height: 80,
-        delay: 1.2,
+        delay: 1,
       }
     );
 
