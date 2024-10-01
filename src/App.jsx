@@ -12,23 +12,10 @@ import Header from "./sections/Header";
 import Footer from "./sections/Footer";
 
 // Libraries
-import Lenis from "lenis";
+// import Lenis from "lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
-const lenis = new Lenis();
-
-lenis.on("scroll", (e) => {
-  console.log(e);
-});
-
-lenis.on("scroll", ScrollTrigger.update);
-
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000);
-});
-
-gsap.ticker.lagSmoothing(0);
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const projectsRef = useRef(null);
@@ -37,10 +24,6 @@ function App() {
 
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [navHidden, setNavHidden] = useState(false);
-  const [timelineStyling, setTimelineStyling] = useState({
-    top: `1000px`, // Move from bottom to top on load
-    height: "82px",
-  });
 
   // Function to update scroll progress and direction
   const handleScroll = () => {
@@ -56,21 +39,6 @@ function App() {
     }
 
     setLastScrollTop(scrollTop);
-
-    // Update timeline styling dynamically
-    if (scrollTop > 140) {
-      setTimelineStyling((prevStyling) => ({
-        ...prevStyling,
-        top: "90px",
-        height: "80vh",
-      }));
-    } else if (scrollTop < 140) {
-      setTimelineStyling((prevStyling) => ({
-        ...prevStyling,
-        top: `120px`,
-        height: "82px",
-      }));
-    }
   };
 
   // Add event listener to update scroll progress and direction
@@ -81,17 +49,49 @@ function App() {
     };
   }, [lastScrollTop]);
 
-  // Trigger the initial load animation to move the line from the bottom to its starting position
+  // Trigger the initial load animation for the scrollbar
   useEffect(() => {
-    const initialAnimationTimer = setTimeout(() => {
-      setTimelineStyling({ ...timelineStyling, top: "120px" });
-    }, 2200);
+    const barContainer = document.querySelector(".bar-container");
+    const barContainerHeight = barContainer.clientHeight;
 
-    return () => clearTimeout(initialAnimationTimer);
+    const scrollBar = gsap.fromTo(
+      ".bar",
+      { height: "80px" },
+      {
+        scrollTrigger: {
+          trigger: ".wrapper",
+          start: "top top",
+          end: "bottom bottom",
+          // markers: true,
+          scrub: 1,
+        },
+        height: barContainerHeight,
+      }
+    );
+
+    const initialLoadAnimation = gsap.fromTo(
+      ".bar",
+      { y: 1000, height: 0 },
+      {
+        y: 0,
+        ease: "power3.inOut",
+        duration: 2.2,
+        height: 80,
+        delay: 1.2,
+      }
+    );
+
+    const tl = gsap.timeline({
+      initialLoadAnimation,
+      scrollBar,
+    });
   }, []);
 
   return (
-    <div className="flex flex-col flex-">
+    <div className="wrapper flex flex-col">
+      <div className="bar-container fixed top-[120px] left-3 h-[80%] w-1 ">
+        <div className="bar h-20 w-1 rounded bg-orange"></div>
+      </div>
       <Nav
         navHidden={navHidden}
         setNavHidden={setNavHidden}
@@ -103,11 +103,6 @@ function App() {
       <Projects ref={projectsRef} />
       <Skills ref={skillsRef} />
       <Footer ref={footerRef} />
-
-      <div
-        className={`fixed left-3 w-1 bg-[#FE6E35] transition-all duration-700 ease-out rounded`}
-        style={timelineStyling}
-      ></div>
     </div>
   );
 }
