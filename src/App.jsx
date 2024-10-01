@@ -52,39 +52,52 @@ function App() {
   // Trigger the initial load animation for the scrollbar
   useEffect(() => {
     const barContainer = document.querySelector(".bar-container");
-    const barContainerHeight = barContainer.clientHeight;
 
-    const scrollBar = gsap.fromTo(
-      ".bar",
-      { height: "80px" },
-      {
-        scrollTrigger: {
-          trigger: ".wrapper",
-          start: "top top",
-          end: "bottom bottom",
-          // markers: true,
-          scrub: 1,
-        },
-        height: barContainerHeight,
-      }
-    );
+    const setBarHeight = () => {
+      const barContainerHeight = barContainer.clientHeight;
 
-    const initialLoadAnimation = gsap.fromTo(
+      // Reinitialize GSAP animation with the correct height
+      gsap.fromTo(
+        ".bar",
+        { height: "80px" },
+        {
+          scrollTrigger: {
+            trigger: ".wrapper",
+            ease: "power2.inOut",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.5,
+            // duration: 1,
+          },
+          height: barContainerHeight, // Correctly set the height here
+        }
+      );
+    };
+
+    gsap.fromTo(
       ".bar",
       { y: 1000, height: 0 },
       {
         y: 0,
-        ease: "power3.inOut",
-        duration: 2.2,
+        ease: "elastic.inOut(1,1.2)",
+        duration: 3,
         height: 80,
-        delay: 1.2,
+        delay: 1,
       }
     );
 
-    const tl = gsap.timeline({
-      initialLoadAnimation,
-      scrollBar,
-    });
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        setBarHeight();
+      });
+    }, 3400);
+
+    // Listen for window resize and recalculate the height if needed
+    // window.addEventListener("resize", setBarHeight);
+
+    // return () => {
+    //   window.removeEventListener("resize", setBarHeight);
+    // };
   }, []);
 
   return (
