@@ -35,17 +35,6 @@ body:has(.pf) {
   font-weight: 700;
   line-height: 1;
 }
-.pf-role {
-  margin-top: 1rem;
-  font-size: 1.25rem;
-  color: var(--pf-gold);
-}
-.pf-tagline {
-  margin-top: 1rem;
-  max-width: 40rem;
-  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
-  color: var(--pf-muted);
-}
 .pf-buttons {
   display: flex;
   align-items: center;

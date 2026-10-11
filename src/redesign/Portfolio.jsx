@@ -22,8 +22,6 @@ function Portfolio() {
       <div className="pf-page">
         <header className="pf-hero">
           <h1>{profile.name}</h1>
-          <p className="pf-role">{profile.role}</p>
-          <p className="pf-tagline">{profile.tagline}</p>
           <nav className="pf-buttons">
             <a className="pf-btn pf-btn--primary" href={`mailto:${profile.email}`}>
               Email me
@@ -57,7 +55,6 @@ function Portfolio() {
                   <span className="pf-dates">{job.dates}</span>
                 </div>
                 <p className="pf-sub">{job.role}</p>
-                {job.summary && <p className="pf-text">{job.summary}</p>}
                 {job.points.length > 0 && (
                   <ul className="pf-list">
                     {job.points.map((p) => (

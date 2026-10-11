@@ -3,9 +3,6 @@ import missingLinkImage from "../assets/missing-link.png";
 
 export const profile = {
   name: "Randy Dyer",
-  role: "Software Engineer",
-  tagline:
-    "Software engineer at BioSensics. Previously built real-time fire and life-safety software at Space Age Electronics, and full-stack health apps for small businesses.",
   email: "rbdyer3@gmail.com",
   links: [
     { label: "GitHub", href: "https://github.com/randyer" },
@@ -20,7 +17,6 @@ export const experience = [
     role: "Software Engineer",
     dates: "Sep 2026 – Present",
     current: true,
-    summary: "Recently joined. More to come.",
     points: [],
     tags: [],
   },
@@ -93,7 +89,7 @@ export const skills = [
   { group: "Languages", items: ["TypeScript", "JavaScript", "Java", "Python", "SQL", "C/C++"] },
   { group: "Frameworks", items: ["React", "React Native", "Node.js", "Electron"] },
   { group: "Cloud & data", items: ["AWS", "PostgreSQL", "MongoDB", "Firebase"] },
-  { group: "Tools", items: ["Git", "Figma", "Jira", "AutoCAD"] },
+  { group: "Tools", items: ["Git", "Figma", "Jira"] },
 ];
 
 export const education = {
