@@ -85,7 +85,7 @@ export const projects = [
 ];
 
 export const skills = [
-  { group: "Languages", items: ["TypeScript", "JavaScript", "Java", "Python", "SQL", "C/C++"] },
+  { group: "Languages", items: ["TypeScript", "Java", "Python", "SQL", "C/C++"] },
   { group: "Frameworks", items: ["React", "React Native", "Node.js", "Electron"] },
   { group: "Cloud & data", items: ["AWS", "PostgreSQL", "MongoDB", "Firebase"] },
   { group: "Tools", items: ["Git", "Figma", "Jira"] },
