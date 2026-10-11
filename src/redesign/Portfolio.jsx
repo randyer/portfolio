@@ -1,5 +1,8 @@
+import { FileText, Github, Linkedin } from "lucide-react";
 import { profile, experience, projects, skills, education, about } from "./content";
 import "./portfolio.css";
+
+const ICONS = { GitHub: Github, LinkedIn: Linkedin, "Résumé": FileText };
 
 const ext = (href) => (href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
 
@@ -25,11 +28,21 @@ function Portfolio() {
             <a className="pf-btn pf-btn--primary" href={`mailto:${profile.email}`}>
               Email me
             </a>
-            {profile.links.map((l) => (
-              <a key={l.label} className="pf-btn" href={l.href} {...ext(l.href)}>
-                {l.label}
-              </a>
-            ))}
+            {profile.links.map((l) => {
+              const Icon = ICONS[l.label];
+              return (
+                <a
+                  key={l.label}
+                  className="pf-btn pf-btn--icon"
+                  href={l.href}
+                  aria-label={l.label}
+                  title={l.label}
+                  {...ext(l.href)}
+                >
+                  <Icon size={20} strokeWidth={1.75} />
+                </a>
+              );
+            })}
           </nav>
         </header>
 
