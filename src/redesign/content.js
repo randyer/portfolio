@@ -77,7 +77,7 @@ export const projects = [
     description:
       "A memory matching game that teaches kids water conservation tips, tested with students and teachers at local elementary schools.",
     tags: ["JavaScript", "HTML", "CSS"],
-    links: [],
+    links: [{ label: "Play", href: "https://randyer.github.io/BWSmemoryMatchingGame/" }],
   },
 ];
 
