@@ -86,6 +86,7 @@ function Forest() {
               <article key={p.title} className="fr-card">
                 <p className="fr-dates">{p.context}</p>
                 <div>
+                  {p.image && <img className="fr-img" src={p.image.src} alt={p.image.alt} />}
                   <h3>{p.title}</h3>
                   <p className="fr-text">{p.description}</p>
                   <div className="fr-tags">

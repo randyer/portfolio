@@ -252,6 +252,28 @@
   background: var(--pn-red);
   box-shadow: 0 0 10px var(--pn-red);
 }
+.pn-tile-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.pn-tile--featured {
+  gap: 1.5rem;
+}
+@media (min-width: 720px) {
+  .pn-tile--featured {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+  }
+  .pn-tile--featured .pn-img {
+    width: 50%;
+  }
+}
+.pn-img {
+  border-radius: 8px;
+  border: 1px solid var(--pn-line);
+}
 .pn-tile-head {
   display: flex;
   justify-content: space-between;

@@ -168,6 +168,12 @@ html:has(.fr) {
   background: var(--fr-surface);
   border-color: var(--fr-line);
 }
+.fr-img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--fr-line);
+  margin-bottom: 1rem;
+}
 .fr-dates {
   font-size: 0.8rem;
   font-weight: 500;

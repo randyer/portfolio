@@ -1,4 +1,5 @@
 // All site copy lives here so every layout stays in sync.
+import missingLinkImage from "../assets/missing-link.png";
 
 export const profile = {
   name: "Randy Dyer",
@@ -42,8 +43,9 @@ export const projects = [
     title: "Missing Link",
     context: "Steam · Early Access",
     description:
-      "A party word game I designed and built solo. Two teams race to finish a word chain from one-word clues. The TV shows the shared board, and 4–10 players join from their phones by scanning a QR code, with no downloads or accounts.",
-    tags: ["Local multiplayer", "Phone controllers", "Game design"],
+      "A party word game I designed and built solo. Two teams race to finish a word chain from one-word clues. The TV shows the shared board, and 4–10 players join from their phones by scanning a QR code, kept in sync in real time over WebSockets.",
+    image: { src: missingLinkImage, alt: "Missing Link logo: a glowing orange chain with one broken link" },
+    tags: ["React", "Electron", "Node.js", "Socket.IO"],
     links: [{ label: "Steam", href: "https://store.steampowered.com/app/4675610/Missing_Link/" }],
   },
   {

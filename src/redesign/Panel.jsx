@@ -67,28 +67,31 @@ function Panel() {
           <h2 className="pn-h2">Projects</h2>
           <div className="pn-grid">
             {projects.map((p, i) => (
-              <article key={p.title} className="pn-tile">
-                <div className="pn-tile-head">
-                  <span className="pn-zone">Zone {pad(i + 1)}</span>
-                  <span className="pn-led pn-led--alarm" />
-                </div>
-                <h3>{p.title}</h3>
-                <p className="pn-role">{p.context}</p>
-                <p className="pn-text">{p.description}</p>
-                <div className="pn-chips">
-                  {p.tags.map((t) => (
-                    <span key={t}>{t}</span>
-                  ))}
-                </div>
-                {p.links.length > 0 && (
-                  <div className="pn-tile-links">
-                    {p.links.map((l) => (
-                      <a key={l.label} href={l.href} {...ext(l.href)}>
-                        {l.label} →
-                      </a>
+              <article key={p.title} className={`pn-tile${p.image ? " pn-tile--featured" : ""}`}>
+                {p.image && <img className="pn-img" src={p.image.src} alt={p.image.alt} />}
+                <div className="pn-tile-body">
+                  <div className="pn-tile-head">
+                    <span className="pn-zone">Zone {pad(i + 1)}</span>
+                    <span className="pn-led pn-led--alarm" />
+                  </div>
+                  <h3>{p.title}</h3>
+                  <p className="pn-role">{p.context}</p>
+                  <p className="pn-text">{p.description}</p>
+                  <div className="pn-chips">
+                    {p.tags.map((t) => (
+                      <span key={t}>{t}</span>
                     ))}
                   </div>
-                )}
+                  {p.links.length > 0 && (
+                    <div className="pn-tile-links">
+                      {p.links.map((l) => (
+                        <a key={l.label} href={l.href} {...ext(l.href)}>
+                          {l.label} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </article>
             ))}
           </div>

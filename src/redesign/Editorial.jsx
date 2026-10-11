@@ -56,6 +56,7 @@ function Editorial() {
         <Section label="Projects">
           {projects.map((p) => (
             <article key={p.title} className="ed-item">
+              {p.image && <img className="ed-img" src={p.image.src} alt={p.image.alt} />}
               <div className="ed-item-head">
                 <h3>{p.title}</h3>
                 <span className="ed-meta">
