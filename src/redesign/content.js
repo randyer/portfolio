@@ -50,7 +50,7 @@ export const projects = [
     context: "Freelance client",
     description:
       "Designed and built the business's website and a full-stack React app for client records (contact info, health history, appointment notes) with encrypted storage and authenticated access. The site increased client inquiries by 70%, and digital intake forms shortened first visits.",
-    tags: ["React", "AWS Amplify", "RDS", "Cognito"],
+    tags: ["React", "AWS", "Encrypted PHI"],
     links: [
       { label: "Website", href: "https://craniosacralmassagetherapy.com/" },
       { label: "App demo", href: "https://randyer.github.io/ATM-app-demo/" },
