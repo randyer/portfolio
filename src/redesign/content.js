@@ -48,7 +48,7 @@ export const projects = [
     title: "Alton Therapeutic Massage",
     context: "Freelance client",
     description:
-      "Designed and built the business's website and a full-stack React app for client records (contact info, health history, appointment notes) with encrypted storage and authenticated access. The site increased client inquiries by 70%, and digital intake forms shortened first visits.",
+      "Designed and built the business's website and a full-stack React app for client records (contact info, health history, appointment notes) with encrypted storage and authenticated access.",
     tags: ["React", "AWS", "HIPAA compliant"],
     links: [
       { label: "Website", href: "https://craniosacralmassagetherapy.com/" },
