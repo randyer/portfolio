@@ -31,7 +31,7 @@ export const experience = [
       "Built a 3D configurator inside Epicor ERP for placing components in custom fire-safety cabinets and generating AutoCAD drawings automatically.",
       "Automated engineering request intake with Power Automate and Planner, tracked turnaround in Power BI, and demoed products to executives and investors.",
     ],
-    tags: ["Electron", "Node.js", "Serial", "VoIP", "Epicor ERP", "AutoCAD", "Power Platform"],
+    tags: ["Electron", "Node.js", "Serial", "VoIP"],
   },
 ];
 
