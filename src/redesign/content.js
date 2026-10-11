@@ -31,10 +31,11 @@ export const experience = [
     points: [
       "Built a touchscreen fire alarm annunciator in Electron that connects to fire panels over serial and shows device status in real time.",
       "Built its admin counterpart: a drag-and-drop editor that generates UI layout and point-to-point config files, so new buildings can be deployed quickly.",
+      "Built a tablet UI and Voice over IP network infrastructure for an emergency two-way communication system.",
       "Built a 3D configurator inside Epicor ERP for placing components in custom fire-safety cabinets and generating AutoCAD drawings automatically.",
       "Automated engineering request intake with Power Automate and Planner, tracked turnaround in Power BI, and demoed products to executives and investors.",
     ],
-    tags: ["Electron", "Node.js", "Serial", "Epicor ERP", "AutoCAD", "Power Platform"],
+    tags: ["Electron", "Node.js", "Serial", "VoIP", "Epicor ERP", "AutoCAD", "Power Platform"],
   },
 ];
 
