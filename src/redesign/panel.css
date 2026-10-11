@@ -1,0 +1,331 @@
+.pn {
+  --pn-bg: #111317;
+  --pn-surface: #181b21;
+  --pn-line: #262a32;
+  --pn-text: #e6e8eb;
+  --pn-muted: #8b919c;
+  --pn-red: #ff4d2e;
+  --pn-amber: #ffb020;
+  --pn-green: #3ddc84;
+
+  min-height: 100vh;
+  background: var(--pn-bg);
+  color: var(--pn-text);
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.6;
+}
+.pn-zone,
+.pn-badge,
+.pn-dates,
+.pn-kicker,
+.pn-statusbar,
+.pn-h2,
+.pn-chips span {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* LEDs */
+.pn-led {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.pn-led--ok {
+  background: var(--pn-green);
+  box-shadow: 0 0 8px var(--pn-green);
+}
+.pn-led--off {
+  background: #3a3f48;
+}
+.pn-led--alarm {
+  background: #3a3f48;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.pn-led--pulse {
+  animation: pn-pulse 2s ease-in-out infinite;
+}
+@keyframes pn-pulse {
+  50% {
+    opacity: 0.35;
+    box-shadow: none;
+  }
+}
+
+/* Status bar */
+.pn-statusbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 16px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pn-muted);
+  background: rgba(17, 19, 23, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--pn-line);
+}
+.pn-statusbar span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pn-page {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 5rem 16px 3rem;
+}
+.pn-page > section {
+  margin-top: 5rem;
+}
+
+/* Hero */
+.pn-kicker {
+  color: var(--pn-red);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+.pn h1 {
+  font-size: clamp(2.75rem, 9vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+.pn-tagline {
+  margin-top: 1.5rem;
+  max-width: 40rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  color: var(--pn-muted);
+}
+.pn-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.pn-btn {
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--pn-line);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--pn-text);
+  background: var(--pn-surface);
+  transition: border-color 0.15s, background 0.15s;
+}
+.pn-btn:hover {
+  border-color: var(--pn-muted);
+}
+.pn-btn--primary {
+  background: var(--pn-red);
+  border-color: var(--pn-red);
+  color: #fff;
+}
+.pn-btn--primary:hover {
+  background: #ff6648;
+  border-color: #ff6648;
+}
+
+.pn-h2 {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pn-muted);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--pn-line);
+}
+.pn-h2--spaced {
+  margin-top: 2.5rem;
+}
+
+/* Experience rows */
+.pn-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.pn-row-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+.pn h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.pn-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  border: 1px solid var(--pn-line);
+  color: var(--pn-muted);
+}
+.pn-row:first-child .pn-badge {
+  color: var(--pn-green);
+  border-color: rgba(61, 220, 132, 0.35);
+}
+.pn-dates {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--pn-muted);
+}
+.pn-role {
+  color: var(--pn-muted);
+  font-size: 0.95rem;
+}
+.pn-row .pn-role,
+.pn-row .pn-text,
+.pn-row .pn-list,
+.pn-row .pn-chips {
+  padding-left: calc(8px + 0.75rem);
+}
+.pn-text {
+  margin-top: 0.5rem;
+  color: #c5c9d0;
+}
+.pn-list {
+  margin-top: 0.75rem;
+  list-style: none;
+}
+.pn-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-top: 0.45rem;
+  color: #c5c9d0;
+}
+.pn-list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--pn-red);
+}
+.pn-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+.pn-chips span {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: var(--pn-surface);
+  border: 1px solid var(--pn-line);
+  color: var(--pn-muted);
+}
+
+/* Project tiles */
+.pn-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 720px) {
+  .pn-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.pn-tile {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--pn-surface);
+  border: 1px solid var(--pn-line);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.pn-tile:hover {
+  border-color: rgba(255, 77, 46, 0.5);
+  transform: translateY(-2px);
+}
+.pn-tile:hover .pn-led--alarm {
+  background: var(--pn-red);
+  box-shadow: 0 0 10px var(--pn-red);
+}
+.pn-tile-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.pn-zone {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pn-amber);
+}
+.pn-tile .pn-text {
+  flex: 1;
+  font-size: 0.95rem;
+}
+.pn-tile-links {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--pn-line);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.pn-tile-links a {
+  color: var(--pn-text);
+}
+.pn-tile-links a:hover {
+  color: var(--pn-red);
+}
+
+/* Skills / education */
+.pn-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media (min-width: 720px) {
+  .pn-split {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+.pn-skill + .pn-skill {
+  margin-top: 1.25rem;
+}
+.pn-skill .pn-chips {
+  margin-top: 0.5rem;
+}
+.pn-strong {
+  font-weight: 600;
+}
+
+.pn-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--pn-line);
+  font-size: 0.875rem;
+  color: var(--pn-muted);
+}
+.pn-footer a {
+  color: var(--pn-text);
+}
+.pn-footer a:hover {
+  color: var(--pn-red);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pn * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
