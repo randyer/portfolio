@@ -27,7 +27,6 @@ export const experience = [
     points: [
       "Developed touchscreen annunciator for fire and life safety using Electron.js to integrate with fire panels and visualize real-time device statuses via serial connection.",
       "Built admin version of annunciator with drag-and-drop editor that generates configuration files defining UI layout and device point-to-point connections, enabling rapid deployment for custom buildings.",
-      "Presented live product demos to executive stakeholders and investors.",
       "Developed tablet-based UI and Voice over IP network infrastructure for an emergency two-way communication system.",
       "Built 3D configurator integrated into Epicor ERP system for positioning electrical components in custom fire safety cabinets and automatically generating AutoCAD drawings, streamlining the design workflow.",
     ],
