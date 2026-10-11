@@ -39,7 +39,7 @@ export const projects = [
     title: "Missing Link",
     context: "Steam · Early Access",
     description:
-      "A party word game I designed and built solo. Two teams race to finish their chain link from one-word clues. The TV shows the shared board, and 4–10 players join from their phones by scanning a QR code.",
+      "A party word game I designed and built solo. Two teams race to finish their chain link from one-word clues. The TV shows the shared board, and 4–10 players join from their phones.",
     image: { src: missingLinkImage, alt: "Missing Link logo: a glowing orange chain with one broken link" },
     tags: ["React", "Electron", "Node.js"],
     links: [{ label: "Steam", href: "https://store.steampowered.com/app/4675610/Missing_Link/" }],
