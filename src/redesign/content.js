@@ -95,4 +95,4 @@ export const education = {
 };
 
 export const about =
-  "Off the clock I'm playing golf, pickleball, or basketball, hiking, cooking, making music, or working on games. My first one, Missing Link, is out in Early Access on Steam.";
+  "In my free time I'm playing golf, pickleball, or basketball, hiking, cooking, making music, or working on games. My first one, Missing Link, is out in Early Access on Steam.";
